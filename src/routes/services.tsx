@@ -108,14 +108,12 @@ function ServicesPage() {
             ))}
           </div>
           <div className="text-center mt-16">
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noreferrer noopener"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-7 py-3.5 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
             >
-              Book a Free Consult <ArrowRight size={18} />
-            </a>
+              Get Started <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>

@@ -81,16 +81,15 @@ function ContactPage() {
             <div className="bg-navy text-white rounded-2xl p-8 md:p-10 h-full">
               <h2 className="text-3xl font-serif text-white mb-4">Prefer to skip ahead?</h2>
               <p className="text-white/70 mb-6 leading-relaxed">
-                Grab a free 30-minute consult on the calendar — no forms, no waiting.
+                Get started — tell us about your business and what you need.
+                We'll get back within one business day.
               </p>
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noreferrer noopener"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-6 py-3 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
               >
-                <CalendarCheck size={18} /> Book a Free Consult
-              </a>
+                Get Started
+              </Link>
 
               <div className="mt-10 pt-8 border-t border-white/15">
                 <p className="text-xs uppercase tracking-wider text-amber font-semibold mb-2">Email</p>
