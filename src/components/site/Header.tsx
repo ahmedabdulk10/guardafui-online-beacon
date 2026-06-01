@@ -2,8 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logoBlue from "@/assets/guardafui-logo-transparent.png.asset.json";
-
-const CALENDLY = "https://calendly.com/guardafuiworks";
+import { CALENDLY_URL as CALENDLY } from "@/lib/site-config";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -32,7 +31,7 @@ export function Header() {
     >
       <div className="container-prose flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
-          <img src={logoBlue.url} alt="Guardafui Works" className="h-14 w-auto" />
+          <img src={logoBlue.url} alt="Guardafui Works" className="h-20 md:h-24 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
