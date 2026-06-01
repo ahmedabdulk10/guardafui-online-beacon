@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, CalendarCheck, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Mail, CalendarCheck, ArrowRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
-import { CALENDLY_URL } from "../components/site/CTA";
+import { CALENDLY_URL, WEB3FORMS_ACCESS_KEY, CONTACT_EMAIL } from "@/lib/site-config";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -18,18 +18,40 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+type Status = "idle" | "submitting" | "success" | "error";
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+function ContactPage() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState<string>("");
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const body = Array.from(data.entries())
-      .map(([k, v]) => `${k}: ${v}`)
-      .join("\n");
-    const subject = encodeURIComponent(`New inquiry from ${data.get("name") || "site"}`);
-    window.location.href = `mailto:info@guardafuiworks.com?subject=${subject}&body=${encodeURIComponent(body)}`;
-    setSubmitted(true);
+    setStatus("submitting");
+    setErrorMsg("");
+    const formEl = e.currentTarget;
+    const data = new FormData(formEl);
+    data.append("access_key", WEB3FORMS_ACCESS_KEY);
+    data.append("subject", `New inquiry from ${data.get("name") || "site"}`);
+    data.append("from_name", "Guardafui Works Website");
+    // Honeypot field is included in the form (botcheck).
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok && json.success) {
+        setStatus("success");
+        formEl.reset();
+      } else {
+        setStatus("error");
+        setErrorMsg(json.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg("Network error. Please check your connection and try again.");
+    }
   };
 
   return (
