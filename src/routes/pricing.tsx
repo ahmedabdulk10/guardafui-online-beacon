@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CheckCircle2, Sparkles, Wrench } from "lucide-react";
+import { useState } from "react";
+import { CheckCircle2, Sparkles } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
 import { FinalCTA } from "../components/site/CTA";
 import {
@@ -29,28 +30,118 @@ export const Route = createFileRoute("/pricing")({
 
 const tiers = [
   {
-    name: "Launch", price: "$750", tag: "Get online with the essentials.",
-    features: ["Domain registration & setup", "Professional business email", "Google Business Profile"],
-    popular: false, cta: "Get Started", href: STRIPE_LAUNCH_URL, external: true,
+    name: "Launch",
+    price: "$750",
+    tag: "Get online with the essentials.",
+    features: [
+      "Domain registration & setup",
+      "DNS configuration",
+      "Professional business email (Microsoft 365 or Google Workspace)",
+      "Email set up on all your devices",
+      "Branded email signature",
+      "Google Business Profile setup & optimization",
+    ],
+    popular: false,
+    cta: "Get Started",
+    href: STRIPE_LAUNCH_URL,
+    external: true,
   },
   {
-    name: "Grow", price: "$1,500", tag: "Everything you need, plus a website.",
-    features: ["Everything in Launch", "5-page custom website", "Booking system integrated"],
-    popular: true, cta: "Get Started", href: STRIPE_GROW_URL, external: true,
+    name: "Grow",
+    price: "$1,500",
+    tag: "Everything you need, plus a website.",
+    features: [
+      "Everything in Launch",
+      "5-page custom website",
+      "Mobile-responsive design",
+      "Booking system integration",
+      "Contact form",
+      "Basic SEO setup",
+    ],
+    popular: true,
+    cta: "Get Started",
+    href: STRIPE_GROW_URL,
+    external: true,
   },
   {
-    name: "Scale", price: "$3,000", tag: "A custom-built site, fully tailored.",
-    features: ["Custom website design & build", "Booking system", "Premium build & integrations"],
-    popular: false, cta: "Get Started", href: STRIPE_SCALE_URL, external: true,
+    name: "Scale",
+    price: "$3,000",
+    tag: "A custom-built site, fully tailored.",
+    features: [
+      "Everything in Grow",
+      "Custom website design & build (more pages, tailored)",
+      "Payment system setup (Stripe / Square)",
+      "Logo design",
+      "Cloud hosting setup (if needed)",
+      "Directory listings (Yelp, Bing, Apple Maps)",
+    ],
+    popular: false,
+    cta: "Get Started",
+    href: STRIPE_SCALE_URL,
+    external: true,
   },
   {
-    name: "Custom", price: "Let's Talk", tag: "Need something specific?",
-    features: ["Tailored scope", "Call or consult for a quote", "Anything we offer, combined"],
-    popular: false, cta: "Contact Us", href: "/contact", external: false,
+    name: "Custom",
+    price: "Let's Talk",
+    tag: "Need something specific?",
+    features: [
+      "Tailored scope",
+      "Anything we offer, combined",
+      "E-commerce / complex builds",
+      "Call or consult for a quote",
+    ],
+    popular: false,
+    cta: "Contact Us",
+    href: "/contact",
+    external: false,
+  },
+];
+
+const carePlans = [
+  {
+    name: "Basic",
+    monthly: 150,
+    yearly: 1500,
+    tag: "Keep everything running smoothly.",
+    features: [
+      "Hosting & domain renewals managed",
+      "Professional email upkeep",
+      "Security monitoring",
+      "Minor fixes & updates",
+    ],
+    popular: false,
+  },
+  {
+    name: "Standard",
+    monthly: 300,
+    yearly: 3000,
+    tag: "Active upkeep for a growing business.",
+    features: [
+      "Everything in Basic",
+      "Website content updates",
+      "Google Business Profile posts",
+      "Monthly check-in",
+    ],
+    popular: true,
+  },
+  {
+    name: "Full",
+    monthly: 500,
+    yearly: 5000,
+    tag: "Hands-off, fully managed.",
+    features: [
+      "Everything in Standard",
+      "Cloud / hosting management",
+      "Priority support",
+      "Monthly performance report",
+    ],
+    popular: false,
   },
 ];
 
 function PricingPage() {
+  const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
+
   return (
     <>
       <section className="bg-sand py-24 md:py-32">
@@ -73,7 +164,7 @@ function PricingPage() {
 
       <section className="bg-white py-20 md:py-28">
         <div className="container-prose">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {tiers.map((t, i) => (
               <Reveal key={t.name} delay={i * 80}>
                 <div
@@ -151,22 +242,108 @@ function PricingPage() {
               </a>
             </div>
           </Reveal>
+        </div>
+      </section>
 
-          {/* Care plans */}
-          <Reveal>
-            <div className="mt-6 bg-white rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6 border border-border shadow-card">
-              <div className="w-14 h-14 rounded-xl bg-amber-soft flex items-center justify-center flex-shrink-0">
-                <Wrench className="text-navy" size={22} />
+      {/* Care Plans */}
+      <section className="bg-sand py-20 md:py-28">
+        <div className="container-prose">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <Reveal>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-4">Care Plans</p>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2 className="text-4xl md:text-5xl font-serif mb-6">
+                Ongoing support, <em className="text-amber not-italic">handled.</em>
+              </h2>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="text-lg text-charcoal/75 leading-relaxed">
+                Optional monthly plans to keep your site, email, and online presence healthy.
+              </p>
+            </Reveal>
+
+            {/* Billing toggle */}
+            <Reveal delay={220}>
+              <div className="mt-8 inline-flex items-center bg-white border border-border rounded-full p-1 shadow-card">
+                <button
+                  onClick={() => setBilling("monthly")}
+                  className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
+                    billing === "monthly" ? "bg-navy text-white" : "text-charcoal/70 hover:text-navy"
+                  }`}
+                >
+                  Monthly
+                </button>
+                <button
+                  onClick={() => setBilling("yearly")}
+                  className={`px-5 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${
+                    billing === "yearly" ? "bg-navy text-white" : "text-charcoal/70 hover:text-navy"
+                  }`}
+                >
+                  Yearly
+                  <span className="bg-amber text-navy-deep text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                    2 months free
+                  </span>
+                </button>
               </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-serif mb-1">Care Plans — from $150/month</h3>
-                <p className="text-charcoal/75">
-                  Optional ongoing maintenance, hosting, security updates, and content tweaks.
-                  Set it and forget it — we keep your setup healthy.
-                </p>
-              </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 items-stretch">
+            {carePlans.map((p, i) => (
+              <Reveal key={p.name} delay={i * 80}>
+                <div
+                  className={`relative rounded-2xl p-8 h-full flex flex-col transition-all ${
+                    p.popular
+                      ? "bg-white border-2 border-amber shadow-amber lg:-translate-y-3"
+                      : "bg-white border border-border shadow-card hover:shadow-card-hover"
+                  }`}
+                >
+                  {p.popular && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber text-navy-deep text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                      Most Popular
+                    </span>
+                  )}
+                  <h3 className="text-2xl font-serif mb-1">{p.name}</h3>
+                  <p className="text-sm text-charcoal/60 mb-5 min-h-[2.5rem]">{p.tag}</p>
+                  <div className="mb-6">
+                    <div className="text-4xl font-serif text-navy">
+                      ${billing === "monthly" ? p.monthly : p.yearly.toLocaleString()}
+                      <span className="text-base text-charcoal/60 font-sans">
+                        {billing === "monthly" ? "/mo" : "/yr"}
+                      </span>
+                    </div>
+                    {billing === "yearly" && (
+                      <div className="mt-2 inline-block bg-amber-soft text-navy-deep text-xs font-semibold px-2.5 py-1 rounded-full">
+                        2 months free
+                      </div>
+                    )}
+                  </div>
+                  <ul className="space-y-3 mb-8 flex-1">
+                    {p.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-charcoal/80">
+                        <CheckCircle2 size={16} className="text-amber flex-shrink-0 mt-0.5" /> {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className={`block text-center font-semibold py-3 rounded-full transition-all ${
+                      p.popular
+                        ? "bg-amber text-navy-deep hover:shadow-amber"
+                        : "border border-navy text-navy hover:bg-navy hover:text-white"
+                    }`}
+                  >
+                    Get Started
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-charcoal/60 mt-10">
+            Care Plans are optional and added after your setup.
+          </p>
         </div>
       </section>
 
