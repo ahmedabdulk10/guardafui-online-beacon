@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoBlue from "@/assets/guardafui-logo.png.asset.json";
+import logoBlue from "@/assets/guardafui-logo-navy-transparent.png.asset.json";
 
 const CALENDLY = "https://calendly.com/guardafuiworks";
 
