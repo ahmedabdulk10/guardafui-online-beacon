@@ -103,19 +103,29 @@ function ContactPage() {
 
           {/* Form */}
           <Reveal className="lg:col-span-3" delay={120}>
-            {submitted ? (
+            {status === "success" ? (
               <div className="bg-sand border border-amber rounded-2xl p-10 text-center">
                 <div className="w-14 h-14 rounded-full bg-amber mx-auto flex items-center justify-center mb-5">
                   <CheckCircle2 className="text-navy-deep" size={26} />
                 </div>
-                <h3 className="text-2xl font-serif mb-2">Your message is ready to send.</h3>
+                <h3 className="text-2xl font-serif mb-2">Message sent.</h3>
                 <p className="text-charcoal/75">
-                  We've opened your email client with the details. If nothing appeared,
-                  reach us directly at <a className="text-navy underline" href="mailto:info@guardafuiworks.com">info@guardafuiworks.com</a>.
+                  Thanks — we got it and will get back within one business day.
+                  In a hurry? Email us at{" "}
+                  <a className="text-navy underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
                 </p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="mt-6 text-sm font-semibold text-navy underline"
+                >
+                  Send another message
+                </button>
               </div>
             ) : (
               <form onSubmit={onSubmit} className="bg-white border border-border rounded-2xl p-8 md:p-10 shadow-card space-y-5">
+                {/* Honeypot for spam bots */}
+                <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+
                 <div className="grid md:grid-cols-2 gap-5">
                   <Field label="Name" name="name" required />
                   <Field label="Email" name="email" type="email" required />
@@ -145,11 +155,24 @@ function ContactPage() {
                     className="w-full bg-white border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber focus:border-amber transition resize-none"
                   />
                 </div>
+
+                {status === "error" && (
+                  <div className="flex items-start gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl p-3">
+                    <AlertCircle size={16} className="flex-shrink-0 mt-0.5" />
+                    <span>{errorMsg}</span>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-7 py-3.5 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
+                  disabled={status === "submitting"}
+                  className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-7 py-3.5 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message <ArrowRight size={18} />
+                  {status === "submitting" ? (
+                    <>Sending… <Loader2 size={18} className="animate-spin" /></>
+                  ) : (
+                    <>Send Message <ArrowRight size={18} /></>
+                  )}
                 </button>
               </form>
             )}
