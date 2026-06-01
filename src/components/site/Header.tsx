@@ -59,7 +59,7 @@ export function Header() {
 
         <button
           aria-label="Toggle menu"
-          className="lg:hidden text-navy"
+          className="lg:hidden text-white"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={26} /> : <Menu size={26} />}
