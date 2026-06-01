@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Linkedin, Twitter, Instagram } from "lucide-react";
-import logoWhite from "@/assets/guardafui-logo.png.asset.json";
+import logoWhite from "@/assets/guardafui-logo-navy-transparent.png.asset.json";
 
 export function Footer() {
   return (
