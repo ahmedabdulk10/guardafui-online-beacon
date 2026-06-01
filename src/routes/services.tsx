@@ -82,7 +82,7 @@ function ServicesPage() {
           <Reveal delay={160}>
             <p className="text-lg text-charcoal/75 leading-relaxed">
               Pick the services you need or let us bundle them into a package. Every engagement starts
-              with a free consult so we can recommend the right setup — not the most expensive one.
+              with a conversation so we can recommend the right setup — not the most expensive one.
             </p>
           </Reveal>
         </div>

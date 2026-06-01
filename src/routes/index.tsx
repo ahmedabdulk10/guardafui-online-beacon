@@ -57,7 +57,7 @@ const tiers = [
 ];
 
 const steps = [
-  { icon: MessageCircle, title: "Free Consult", desc: "30 minutes to understand your business and goals." },
+  { icon: MessageCircle, title: "Get Started", desc: "Tell us about your business and what you need." },
   { icon: PencilRuler, title: "We Plan Your Setup", desc: "A clear scope, timeline, and fixed price." },
   { icon: Wrench, title: "We Build It", desc: "Website, email, hosting — all wired up properly." },
   { icon: Rocket, title: "You Go Live", desc: "Hand-off, training, and you're open for business." },

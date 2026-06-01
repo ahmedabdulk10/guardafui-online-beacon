@@ -8,9 +8,9 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Guardafui Works" },
-      { name: "description", content: "Get in touch to book a free consult or ask about getting your business online." },
+      { name: "description", content: "Get in touch to get started or ask about getting your business online." },
       { property: "og:title", content: "Contact — Guardafui Works" },
-      { property: "og:description", content: "Book a free consult or send us a note." },
+      { property: "og:description", content: "Get started or send us a note." },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
