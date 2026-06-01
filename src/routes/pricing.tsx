@@ -98,18 +98,31 @@ function PricingPage() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className={`block text-center font-semibold py-3 rounded-full transition-all ${
-                      t.popular
-                        ? "bg-amber text-navy-deep hover:shadow-amber"
-                        : "border border-navy text-navy hover:bg-navy hover:text-white"
-                    }`}
-                  >
-                    {t.cta}
-                  </a>
+                  {t.external ? (
+                    <a
+                      href={t.href}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={`block text-center font-semibold py-3 rounded-full transition-all ${
+                        t.popular
+                          ? "bg-amber text-navy-deep hover:shadow-amber"
+                          : "border border-navy text-navy hover:bg-navy hover:text-white"
+                      }`}
+                    >
+                      {t.cta}
+                    </a>
+                  ) : (
+                    <Link
+                      to={t.href}
+                      className={`block text-center font-semibold py-3 rounded-full transition-all ${
+                        t.popular
+                          ? "bg-amber text-navy-deep hover:shadow-amber"
+                          : "border border-navy text-navy hover:bg-navy hover:text-white"
+                      }`}
+                    >
+                      {t.cta}
+                    </Link>
+                  )}
                 </div>
               </Reveal>
             ))}
