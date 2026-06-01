@@ -25,9 +25,9 @@ export const Route = createFileRoute("/services")({
 
 const services = [
   {
-    icon: Globe,
-    title: "Custom Website Design & Build",
-    desc: "A hand-crafted, fast-loading site built around your business — not a tweaked template. Mobile-first, SEO-friendly, and easy for you to update.",
+    icon: Link2,
+    title: "Domain Registration & Setup",
+    desc: "We help you pick the right domain, register it properly, and configure DNS, email records, and redirects — no loose ends.",
   },
   {
     icon: Mail,
@@ -35,19 +35,19 @@ const services = [
     desc: "you@yourbusiness.com on Microsoft 365 or Google Workspace. We handle the records, the migration, and the security so your mail just works.",
   },
   {
-    icon: Link2,
-    title: "Domain Registration & Setup",
-    desc: "We help you pick the right domain, register it properly, and configure DNS, email records, and redirects — no loose ends.",
+    icon: MapPin,
+    title: "Google Business Profile",
+    desc: "Show up on Google Maps and local Search. We set up your profile, verify it, and optimize categories, photos, and hours.",
+  },
+  {
+    icon: Globe,
+    title: "Custom Website Design & Build",
+    desc: "A hand-crafted, fast-loading site built around your business — not a tweaked template. Mobile-first, SEO-friendly, and easy for you to update.",
   },
   {
     icon: Server,
     title: "Cloud Hosting (Azure / AWS)",
-    desc: "Premium hosting on enterprise cloud infrastructure. Fast, scalable, secure — the same backbone larger businesses run on.",
-  },
-  {
-    icon: MapPin,
-    title: "Google Business Profile",
-    desc: "Show up on Google Maps and local Search. We set up your profile, verify it, and optimize categories, photos, and hours.",
+    desc: "Optional / if needed. Premium hosting on enterprise cloud infrastructure. Fast, scalable, secure — the same backbone larger businesses run on.",
   },
   {
     icon: CalendarCheck,
