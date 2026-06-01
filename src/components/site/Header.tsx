@@ -27,15 +27,12 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-card" : "bg-white"
+        scrolled ? "bg-navy-deep/95 backdrop-blur-md shadow-card" : "bg-navy-deep"
       }`}
     >
       <div className="container-prose flex items-center justify-between h-20">
-        <Link to="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
-          <BeaconMark className="w-7 h-7 text-amber" />
-          <span className="font-serif text-2xl text-navy font-semibold tracking-tight">
-            Guardafui <span className="text-amber">Works</span>
-          </span>
+        <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
+          <img src={logoWhite.url} alt="Guardafui Works" className="h-14 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
@@ -43,8 +40,8 @@ export function Header() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm font-medium text-charcoal/80 hover:text-navy transition-colors"
-              activeProps={{ className: "text-navy" }}
+              className="text-sm font-medium text-white/75 hover:text-amber transition-colors"
+              activeProps={{ className: "text-amber" }}
               activeOptions={{ exact: true }}
             >
               {l.label}
