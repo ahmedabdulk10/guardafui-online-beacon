@@ -1,5 +1,9 @@
-import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
+import { type ReactNode, type ElementType, type CSSProperties } from "react";
 
+/**
+ * Reveal — SSR-safe fade/rise in. Always renders visible; animation is purely
+ * a polish layer using a CSS keyframe so the content never depends on JS.
+ */
 export function Reveal({
   children,
   delay = 0,
@@ -11,37 +15,13 @@ export function Reveal({
   className?: string;
   as?: ElementType;
 }) {
-  const ref = useRef<HTMLElement | null>(null);
-  const [shown, setShown] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.12 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
   const Comp = Tag as any;
+  const style: CSSProperties = {
+    animation: "guardafui-rise 700ms ease both",
+    animationDelay: `${delay}ms`,
+  };
   return (
-    <Comp
-      ref={ref as any}
-      style={{
-        transition: "opacity 700ms ease, transform 700ms ease",
-        transitionDelay: `${delay}ms`,
-        opacity: shown ? 1 : 0,
-        transform: shown ? "translateY(0)" : "translateY(20px)",
-      }}
-      className={className}
-    >
+    <Comp className={className} style={style}>
       {children}
     </Comp>
   );
