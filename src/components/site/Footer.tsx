@@ -4,7 +4,7 @@ import logoWhite from "@/assets/guardafui-logo.png.asset.json";
 
 export function Footer() {
   return (
-    <footer className="bg-navy-deep text-white/80">
+    <footer className="bg-sand text-charcoal/80 border-t border-border">
       <div className="container-prose py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
           <Link to="/" className="inline-flex items-center mb-4">
