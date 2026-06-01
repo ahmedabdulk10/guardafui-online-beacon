@@ -1,17 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Linkedin, Twitter, Instagram } from "lucide-react";
-import { BeaconMark } from "./Beacon";
+import logoWhite from "@/assets/guardafui-logo-white.png.asset.json";
 
 export function Footer() {
   return (
     <footer className="bg-navy-deep text-white/80">
       <div className="container-prose py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <Link to="/" className="flex items-center gap-2.5 mb-4">
-            <BeaconMark className="w-7 h-7 text-amber" />
-            <span className="font-serif text-2xl text-white font-semibold">
-              Guardafui <span className="text-amber">Works</span>
-            </span>
+          <Link to="/" className="inline-flex items-center mb-4">
+            <img src={logoWhite.url} alt="Guardafui Works" className="h-20 w-auto" />
           </Link>
           <p className="max-w-md text-sm leading-relaxed text-white/60">
             A remote tech studio helping small businesses look established from day one — custom
