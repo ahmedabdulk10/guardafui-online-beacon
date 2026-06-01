@@ -10,13 +10,13 @@ export function Footer() {
           <Link to="/" className="inline-flex items-center mb-4">
             <img src={logoWhite.url} alt="Guardafui Works" className="h-20 w-auto" />
           </Link>
-          <p className="max-w-md text-sm leading-relaxed text-white/60">
+          <p className="max-w-md text-sm leading-relaxed text-charcoal/60">
             A remote tech studio helping small businesses look established from day one — custom
             websites, business email, hosting, and Google Business setup.
           </p>
           <a
             href="mailto:hello@guardafuiworks.com"
-            className="inline-flex items-center gap-2 mt-5 text-amber hover:text-white transition-colors text-sm"
+            className="inline-flex items-center gap-2 mt-5 text-navy hover:text-amber transition-colors text-sm font-medium"
           >
             <Mail size={16} /><span>hello@guardafuiworks.com</span>
           </a>
