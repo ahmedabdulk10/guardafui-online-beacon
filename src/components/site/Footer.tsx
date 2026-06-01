@@ -18,7 +18,7 @@ export function Footer() {
             href="mailto:hello@guardafuiworks.com"
             className="inline-flex items-center gap-2 mt-5 text-amber hover:text-white transition-colors text-sm"
           >
-            <Mail size={16} /> hello@guardafuiworks.com
+            <Mail size={16} /><span>hello@guardafuiworks.com</span>
           </a>
         </div>
 
