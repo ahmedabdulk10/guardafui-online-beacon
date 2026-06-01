@@ -1,5 +1,9 @@
-import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
+import { type ReactNode, type ElementType, type CSSProperties } from "react";
 
+/**
+ * Reveal — SSR-safe fade/rise in. Always renders visible; animation is purely
+ * a polish layer using a CSS keyframe so the content never depends on JS.
+ */
 export function Reveal({
   children,
   delay = 0,
@@ -11,27 +15,13 @@ export function Reveal({
   className?: string;
   as?: ElementType;
 }) {
-  const ref = useRef<HTMLElement | null>(null);
-  const [shown, setShown] = useState(false);
-
-  useEffect(() => {
-    // Reveal on mount so content is always visible, even without scroll.
-    const id = requestAnimationFrame(() => setShown(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
   const Comp = Tag as any;
+  const style: CSSProperties = {
+    animation: "guardafui-rise 700ms ease both",
+    animationDelay: `${delay}ms`,
+  };
   return (
-    <Comp
-      ref={ref as any}
-      style={{
-        transition: "opacity 700ms ease, transform 700ms ease",
-        transitionDelay: `${delay}ms`,
-        opacity: shown ? 1 : 0,
-        transform: shown ? "translateY(0)" : "translateY(16px)",
-      }}
-      className={className}
-    >
+    <Comp className={className} style={style}>
       {children}
     </Comp>
   );
