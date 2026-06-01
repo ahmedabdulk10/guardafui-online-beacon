@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logoBlue from "@/assets/guardafui-logo-transparent.png.asset.json";
-import { CALENDLY_URL as CALENDLY } from "@/lib/site-config";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -46,14 +45,12 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          <a
-            href={CALENDLY}
-            target="_blank"
-            rel="noreferrer noopener"
+          <Link
+            to="/contact"
             className="bg-amber text-navy-deep font-semibold text-sm px-5 py-2.5 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
           >
-            Book a Free Consult
-          </a>
+            Get Started
+          </Link>
         </nav>
 
         <button
@@ -78,14 +75,12 @@ export function Header() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href={CALENDLY}
-              target="_blank"
-              rel="noreferrer noopener"
+            <Link
+              to="/contact"
               className="bg-amber text-navy-deep font-semibold text-center px-5 py-3 rounded-full mt-2"
             >
-              Book a Free Consult
-            </a>
+              Get Started
+            </Link>
           </div>
         </div>
       )}

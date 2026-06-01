@@ -1,9 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Globe, Mail, Link2, Server, MapPin, CalendarCheck, CreditCard, Palette, ArrowRight,
 } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
-import { FinalCTA, CALENDLY_URL } from "../components/site/CTA";
+import { FinalCTA } from "../components/site/CTA";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -82,7 +82,7 @@ function ServicesPage() {
           <Reveal delay={160}>
             <p className="text-lg text-charcoal/75 leading-relaxed">
               Pick the services you need or let us bundle them into a package. Every engagement starts
-              with a free consult so we can recommend the right setup — not the most expensive one.
+              with a conversation so we can recommend the right setup — not the most expensive one.
             </p>
           </Reveal>
         </div>
@@ -108,14 +108,12 @@ function ServicesPage() {
             ))}
           </div>
           <div className="text-center mt-16">
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noreferrer noopener"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-7 py-3.5 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
             >
-              Book a Free Consult <ArrowRight size={18} />
-            </a>
+              Get Started <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>

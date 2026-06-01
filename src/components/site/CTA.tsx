@@ -1,5 +1,4 @@
-export { CALENDLY_URL } from "@/lib/site-config";
-import { CALENDLY_URL } from "@/lib/site-config";
+import { Link } from "@tanstack/react-router";
 
 export function FinalCTA() {
   return (
@@ -9,17 +8,15 @@ export function FinalCTA() {
           Ready to get your business online?
         </h2>
         <p className="text-white/70 text-lg max-w-2xl mx-auto mb-9">
-          Book a free consult. We'll map out exactly what you need to look established —
-          and how fast we can get there.
+          Get started — tell us about your business and what you need.
+          We'll map out the right setup and how fast we can get there.
         </p>
-        <a
-          href={CALENDLY_URL}
-          target="_blank"
-          rel="noreferrer noopener"
+        <Link
+          to="/contact"
           className="inline-block bg-amber text-navy-deep font-semibold px-8 py-4 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
         >
-          Book a Free Consult
-        </a>
+          Get Started
+        </Link>
       </div>
       <div
         aria-hidden
