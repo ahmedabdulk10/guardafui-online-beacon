@@ -1,9 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Globe, Mail, Link2, Server, MapPin, CalendarCheck, CreditCard, Palette, ArrowRight,
 } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
-import { FinalCTA, CALENDLY_URL } from "../components/site/CTA";
+import { FinalCTA } from "../components/site/CTA";
 
 export const Route = createFileRoute("/services")({
   head: () => ({

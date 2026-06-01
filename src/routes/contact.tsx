@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, CalendarCheck, ArrowRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
-import { CALENDLY_URL, WEB3FORMS_ACCESS_KEY, CONTACT_EMAIL } from "@/lib/site-config";
+import { WEB3FORMS_ACCESS_KEY, CONTACT_EMAIL } from "@/lib/site-config";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

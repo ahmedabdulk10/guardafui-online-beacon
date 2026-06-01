@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logoBlue from "@/assets/guardafui-logo-transparent.png.asset.json";
-import { CALENDLY_URL as CALENDLY } from "@/lib/site-config";
 
 const navLinks = [
   { to: "/", label: "Home" },

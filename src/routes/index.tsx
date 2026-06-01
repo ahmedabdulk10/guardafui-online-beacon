@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { BeaconWatermark } from "../components/site/Beacon";
 import { Reveal } from "../components/site/Reveal";
-import { FinalCTA, CALENDLY_URL } from "../components/site/CTA";
+import { FinalCTA } from "../components/site/CTA";
 
 export const Route = createFileRoute("/")({
   head: () => ({
