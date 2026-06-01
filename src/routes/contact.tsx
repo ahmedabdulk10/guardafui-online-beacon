@@ -28,7 +28,7 @@ function ContactPage() {
       .map(([k, v]) => `${k}: ${v}`)
       .join("\n");
     const subject = encodeURIComponent(`New inquiry from ${data.get("name") || "site"}`);
-    window.location.href = `mailto:info@guardafuiworks.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:hello@guardafuiworks.com?subject=${subject}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
@@ -72,8 +72,8 @@ function ContactPage() {
 
               <div className="mt-10 pt-8 border-t border-white/15">
                 <p className="text-xs uppercase tracking-wider text-amber font-semibold mb-2">Email</p>
-                <a href="mailto:info@guardafuiworks.com" className="text-white hover:text-amber inline-flex items-center gap-2">
-                  <Mail size={16} /> info@guardafuiworks.com
+                <a href="mailto:hello@guardafuiworks.com" className="text-white hover:text-amber inline-flex items-center gap-2">
+                  <Mail size={16} /> hello@guardafuiworks.com
                 </a>
               </div>
             </div>
@@ -89,7 +89,7 @@ function ContactPage() {
                 <h3 className="text-2xl font-serif mb-2">Your message is ready to send.</h3>
                 <p className="text-charcoal/75">
                   We've opened your email client with the details. If nothing appeared,
-                  reach us directly at <a className="text-navy underline" href="mailto:info@guardafuiworks.com">info@guardafuiworks.com</a>.
+                  reach us directly at <a className="text-navy underline" href="mailto:hello@guardafuiworks.com">hello@guardafuiworks.com</a>.
                 </p>
               </div>
             ) : (
