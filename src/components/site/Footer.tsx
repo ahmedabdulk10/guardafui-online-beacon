@@ -23,7 +23,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white font-sans font-semibold text-sm uppercase tracking-wider mb-4">
+          <h4 className="text-navy font-sans font-semibold text-sm uppercase tracking-wider mb-4">
+
             Explore
           </h4>
           <ul className="space-y-2.5 text-sm">
@@ -36,7 +37,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white font-sans font-semibold text-sm uppercase tracking-wider mb-4">
+          <h4 className="text-navy font-sans font-semibold text-sm uppercase tracking-wider mb-4">
             Follow
           </h4>
           <div className="flex gap-3">
@@ -45,7 +46,7 @@ export function Footer() {
                 key={i}
                 href="#"
                 aria-label="social"
-                className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center hover:bg-amber hover:text-navy-deep hover:border-amber transition-colors"
+                className="w-9 h-9 rounded-full border border-navy/20 text-navy flex items-center justify-center hover:bg-amber hover:text-navy-deep hover:border-amber transition-colors"
               >
                 <Icon size={16} />
               </a>
@@ -53,8 +54,9 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <div className="container-prose py-6 text-xs text-white/40 flex flex-col md:flex-row justify-between gap-2">
+      <div className="border-t border-border">
+        <div className="container-prose py-6 text-xs text-charcoal/50 flex flex-col md:flex-row justify-between gap-2">
+
           <span>© {new Date().getFullYear()} Guardafui Works. All rights reserved.</span>
           <span>A guiding beacon for small business online.</span>
         </div>
