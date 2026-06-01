@@ -29,16 +29,34 @@ function ContactPage() {
     setStatus("submitting");
     setErrorMsg("");
     const formEl = e.currentTarget;
-    const data = new FormData(formEl);
-    data.append("access_key", WEB3FORMS_ACCESS_KEY);
-    data.append("subject", `New inquiry from ${data.get("name") || "site"}`);
-    data.append("from_name", "Guardafui Works Website");
-    // Honeypot field is included in the form (botcheck).
+    const formData = new FormData(formEl);
+
+    // Honeypot — silently succeed if filled.
+    if (formData.get("botcheck")) {
+      setStatus("success");
+      formEl.reset();
+      return;
+    }
+
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: "New inquiry from Guardafui Works website",
+      from_name: "Guardafui Works Website",
+      name: formData.get("name"),
+      email: formData.get("email"),
+      business: formData.get("business"),
+      need: formData.get("need"),
+      message: formData.get("message"),
+    };
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: data,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       });
       const json = await res.json().catch(() => ({}));
       if (res.ok && json.success) {
@@ -46,11 +64,15 @@ function ContactPage() {
         formEl.reset();
       } else {
         setStatus("error");
-        setErrorMsg(json.message || "Something went wrong. Please try again.");
+        setErrorMsg(
+          `Something went wrong. Please try again, or email us directly at ${CONTACT_EMAIL}.`,
+        );
       }
-    } catch (err) {
+    } catch {
       setStatus("error");
-      setErrorMsg("Network error. Please check your connection and try again.");
+      setErrorMsg(
+        `Couldn't send your message. Please try again, or email us directly at ${CONTACT_EMAIL}.`,
+      );
     }
   };
 
