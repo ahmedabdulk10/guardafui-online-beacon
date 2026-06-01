@@ -1,4 +1,5 @@
-export const CALENDLY_URL = "https://calendly.com/guardafuiworks";
+export { CALENDLY_URL } from "@/lib/site-config";
+import { CALENDLY_URL } from "@/lib/site-config";
 
 export function FinalCTA() {
   return (

@@ -1,7 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, Sparkles, Wrench } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
-import { FinalCTA, CALENDLY_URL } from "../components/site/CTA";
+import { FinalCTA } from "../components/site/CTA";
+import {
+  CALENDLY_URL,
+  STRIPE_LAUNCH_URL,
+  STRIPE_GROW_URL,
+  STRIPE_SCALE_URL,
+} from "@/lib/site-config";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
@@ -25,22 +31,22 @@ const tiers = [
   {
     name: "Launch", price: "$750", tag: "Get online with the essentials.",
     features: ["Domain registration & setup", "Professional business email", "Google Business Profile"],
-    popular: false, cta: "Get Started",
+    popular: false, cta: "Get Started", href: STRIPE_LAUNCH_URL, external: true,
   },
   {
     name: "Grow", price: "$1,500", tag: "Everything you need, plus a website.",
     features: ["Everything in Launch", "5-page custom website", "Booking system integrated"],
-    popular: true, cta: "Get Started",
+    popular: true, cta: "Get Started", href: STRIPE_GROW_URL, external: true,
   },
   {
     name: "Scale", price: "$3,000", tag: "A custom-built site, fully tailored.",
     features: ["Custom website design & build", "Booking system", "Premium build & integrations"],
-    popular: false, cta: "Get Started",
+    popular: false, cta: "Get Started", href: STRIPE_SCALE_URL, external: true,
   },
   {
     name: "Custom", price: "Let's Talk", tag: "Need something specific?",
     features: ["Tailored scope", "Call or consult for a quote", "Anything we offer, combined"],
-    popular: false, cta: "Book a Consult",
+    popular: false, cta: "Contact Us", href: "/contact", external: false,
   },
 ];
 
@@ -92,18 +98,31 @@ function PricingPage() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className={`block text-center font-semibold py-3 rounded-full transition-all ${
-                      t.popular
-                        ? "bg-amber text-navy-deep hover:shadow-amber"
-                        : "border border-navy text-navy hover:bg-navy hover:text-white"
-                    }`}
-                  >
-                    {t.cta}
-                  </a>
+                  {t.external ? (
+                    <a
+                      href={t.href}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={`block text-center font-semibold py-3 rounded-full transition-all ${
+                        t.popular
+                          ? "bg-amber text-navy-deep hover:shadow-amber"
+                          : "border border-navy text-navy hover:bg-navy hover:text-white"
+                      }`}
+                    >
+                      {t.cta}
+                    </a>
+                  ) : (
+                    <Link
+                      to={t.href}
+                      className={`block text-center font-semibold py-3 rounded-full transition-all ${
+                        t.popular
+                          ? "bg-amber text-navy-deep hover:shadow-amber"
+                          : "border border-navy text-navy hover:bg-navy hover:text-white"
+                      }`}
+                    >
+                      {t.cta}
+                    </Link>
+                  )}
                 </div>
               </Reveal>
             ))}
