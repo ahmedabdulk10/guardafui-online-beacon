@@ -10,7 +10,7 @@ export const STRIPE_SCALE_URL = "https://buy.stripe.com/REPLACE_SCALE";
 
 // Web3Forms access key — get a free key at https://web3forms.com
 // Submissions are emailed to info@guardafuiworks.com
-export const WEB3FORMS_ACCESS_KEY = "REPLACE_WITH_YOUR_WEB3FORMS_KEY";
+export const WEB3FORMS_ACCESS_KEY = "6c010250-91fb-4e5a-bbc3-3ef31e192af2";
 
 export const SITE_URL = "https://guardafuiworks.com";
 export const CONTACT_EMAIL = "info@guardafuiworks.com";
