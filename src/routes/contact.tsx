@@ -129,9 +129,9 @@ function ContactPage() {
                 <div className="w-14 h-14 rounded-full bg-amber mx-auto flex items-center justify-center mb-5">
                   <CheckCircle2 className="text-navy-deep" size={26} />
                 </div>
-                <h3 className="text-2xl font-serif mb-2">Message sent.</h3>
+                <h3 className="text-2xl font-serif mb-2">Thanks!</h3>
                 <p className="text-charcoal/75">
-                  Thanks — we got it and will get back within one business day.
+                  We'll get back to you within one business day.
                   In a hurry? Email us at{" "}
                   <a className="text-navy underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
                 </p>
