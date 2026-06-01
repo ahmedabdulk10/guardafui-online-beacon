@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoWhite from "@/assets/guardafui-logo-white.png.asset.json";
+import logoBlue from "@/assets/guardafui-logo-blue.png.asset.json";
 
 const CALENDLY = "https://calendly.com/guardafuiworks";
 
@@ -27,12 +27,12 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-navy-deep/95 backdrop-blur-md shadow-card" : "bg-navy-deep"
+        scrolled ? "bg-white/90 backdrop-blur-md shadow-card" : "bg-white"
       }`}
     >
       <div className="container-prose flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
-          <img src={logoWhite.url} alt="Guardafui Works" className="h-14 w-auto" />
+          <img src={logoBlue.url} alt="Guardafui Works" className="h-14 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
@@ -40,8 +40,8 @@ export function Header() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm font-medium text-white/75 hover:text-amber transition-colors"
-              activeProps={{ className: "text-amber" }}
+              className="text-sm font-medium text-charcoal/80 hover:text-navy transition-colors"
+              activeProps={{ className: "text-navy" }}
               activeOptions={{ exact: true }}
             >
               {l.label}
@@ -59,7 +59,7 @@ export function Header() {
 
         <button
           aria-label="Toggle menu"
-          className="lg:hidden text-white"
+          className="lg:hidden text-navy"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={26} /> : <Menu size={26} />}
