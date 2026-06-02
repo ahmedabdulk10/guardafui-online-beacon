@@ -1,12 +1,12 @@
 // Single source of truth for external URLs and keys.
 // Replace the placeholder values below with real ones.
 
-export const CALENDLY_URL = "https://calendly.com/guardafuiworks";
+export const CALENDLY_URL = "https://calendly.com/guardafuiworks-info/30min";
 
-// Stripe Payment Links (replace with real ones from your Stripe dashboard)
-export const STRIPE_LAUNCH_URL = "https://buy.stripe.com/REPLACE_LAUNCH";
-export const STRIPE_GROW_URL = "https://buy.stripe.com/REPLACE_GROW";
-export const STRIPE_SCALE_URL = "https://buy.stripe.com/REPLACE_SCALE";
+// Stripe Payment Links — saved for manual sending to clients after consult
+export const STRIPE_LAUNCH_URL = "https://buy.stripe.com/28E5kw8Nl9BId428V3f3a00";
+export const STRIPE_GROW_URL = "https://buy.stripe.com/5kQ4gse7F0184xwefnf3a01";
+export const STRIPE_SCALE_URL = "https://buy.stripe.com/dRmcMY9RpeW23tsdbjf3a02";
 
 // Web3Forms access key — get a free key at https://web3forms.com
 // Submissions are emailed to info@guardafuiworks.com
