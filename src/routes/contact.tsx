@@ -131,10 +131,11 @@ function ContactPage() {
                 <Field label="Business Name" name="business" placeholder="Optional" />
 
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label htmlFor="need" className="block text-sm font-semibold text-navy mb-2">
                     What do you need? <span className="text-amber">*</span>
                   </label>
                   <select
+                    id="need"
                     name="need"
                     required
                     defaultValue=""
@@ -150,10 +151,11 @@ function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold text-navy mb-2">
                     Message <span className="text-amber">*</span>
                   </label>
                   <textarea
+                    id="message"
                     name="message"
                     rows={5}
                     required
@@ -280,11 +282,12 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-semibold text-navy mb-2">
+      <label htmlFor={name} className="block text-sm font-semibold text-navy mb-2">
         {label}
         {required && <span className="text-amber"> *</span>}
       </label>
       <input
+        id={name}
         type={type}
         name={name}
         required={required}
