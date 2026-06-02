@@ -23,7 +23,7 @@ function NotFoundComponent() {
     <div className="flex min-h-screen flex-col">
       <main className="flex-1 flex items-center justify-center bg-sand px-4 py-16">
         <div className="max-w-lg text-center">
-          <img src={logo.url} alt="Guardafui Works" className="h-20 w-auto mx-auto mb-8 opacity-90" />
+          <img src={logo.url} alt="Guardafui Works" width={1254} height={1254} className="h-20 w-auto mx-auto mb-8 opacity-90" />
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">Lost at sea</p>
           <h1 className="text-7xl md:text-8xl font-serif text-navy leading-none">404</h1>
           <h2 className="mt-5 text-2xl md:text-3xl font-serif text-charcoal">This page doesn't exist.</h2>

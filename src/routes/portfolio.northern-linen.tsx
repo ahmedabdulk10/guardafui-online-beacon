@@ -55,7 +55,7 @@ function NorthernLinenPage() {
           <div className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center max-w-4xl">
             <Reveal>
               <div className="bg-white rounded-2xl border border-border shadow-card p-6 w-40 h-40 md:w-48 md:h-48 flex items-center justify-center mx-auto md:mx-0">
-                <img src={logoAsset.url} alt="Northern Linen logo" className="max-w-full max-h-full object-contain" />
+                <img src={logoAsset.url} alt="Northern Linen logo" width={726} height={533} className="max-w-full max-h-full object-contain" />
               </div>
             </Reveal>
             <div>
