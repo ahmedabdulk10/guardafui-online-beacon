@@ -12,9 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioNorthernLinenRouteImport } from './routes/portfolio.northern-linen'
 
 const ServicesRoute = ServicesRouteImport.update({
@@ -32,11 +32,6 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PortfolioRoute = PortfolioRouteImport.update({
-  id: '/portfolio',
-  path: '/portfolio',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -47,77 +42,83 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
+  id: '/portfolio/',
+  path: '/portfolio/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioNorthernLinenRoute = PortfolioNorthernLinenRouteImport.update({
-  id: '/northern-linen',
-  path: '/northern-linen',
-  getParentRoute: () => PortfolioRoute,
+  id: '/portfolio/northern-linen',
+  path: '/portfolio/northern-linen',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/portfolio/northern-linen': typeof PortfolioNorthernLinenRoute
+  '/portfolio/': typeof PortfolioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/portfolio/northern-linen': typeof PortfolioNorthernLinenRoute
+  '/portfolio': typeof PortfolioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/portfolio/northern-linen': typeof PortfolioNorthernLinenRoute
+  '/portfolio/': typeof PortfolioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/contact'
-    | '/portfolio'
     | '/pricing'
     | '/reviews'
     | '/services'
     | '/portfolio/northern-linen'
+    | '/portfolio/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contact'
-    | '/portfolio'
     | '/pricing'
     | '/reviews'
     | '/services'
     | '/portfolio/northern-linen'
+    | '/portfolio'
   id:
     | '__root__'
     | '/'
     | '/contact'
-    | '/portfolio'
     | '/pricing'
     | '/reviews'
     | '/services'
     | '/portfolio/northern-linen'
+    | '/portfolio/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  PortfolioRoute: typeof PortfolioRouteWithChildren
   PricingRoute: typeof PricingRoute
   ReviewsRoute: typeof ReviewsRoute
   ServicesRoute: typeof ServicesRoute
+  PortfolioNorthernLinenRoute: typeof PortfolioNorthernLinenRoute
+  PortfolioIndexRoute: typeof PortfolioIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -143,13 +144,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/portfolio': {
-      id: '/portfolio'
-      path: '/portfolio'
-      fullPath: '/portfolio'
-      preLoaderRoute: typeof PortfolioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -164,36 +158,42 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/': {
+      id: '/portfolio/'
+      path: '/portfolio'
+      fullPath: '/portfolio/'
+      preLoaderRoute: typeof PortfolioIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio/northern-linen': {
       id: '/portfolio/northern-linen'
-      path: '/northern-linen'
+      path: '/portfolio/northern-linen'
       fullPath: '/portfolio/northern-linen'
       preLoaderRoute: typeof PortfolioNorthernLinenRouteImport
-      parentRoute: typeof PortfolioRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface PortfolioRouteChildren {
-  PortfolioNorthernLinenRoute: typeof PortfolioNorthernLinenRoute
-}
-
-const PortfolioRouteChildren: PortfolioRouteChildren = {
-  PortfolioNorthernLinenRoute: PortfolioNorthernLinenRoute,
-}
-
-const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
-  PortfolioRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  PortfolioRoute: PortfolioRouteWithChildren,
   PricingRoute: PricingRoute,
   ReviewsRoute: ReviewsRoute,
   ServicesRoute: ServicesRoute,
+  PortfolioNorthernLinenRoute: PortfolioNorthernLinenRoute,
+  PortfolioIndexRoute: PortfolioIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
