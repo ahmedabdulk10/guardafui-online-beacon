@@ -57,34 +57,17 @@ function ReviewsPage() {
       {/* GRID OR EMPTY STATE */}
       <section className="bg-sand py-20 md:py-28">
         <div className="container-prose">
-          {hasReviews ? (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Reveal>
+            <FlipReviewCard {...northernLinenReview} />
+          </Reveal>
+          {hasReviews && (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
               {placeholderReviews.map((r, i) => (
                 <Reveal key={i} delay={(i % 3) * 80}>
                   <ReviewCard review={r} />
                 </Reveal>
               ))}
             </div>
-          ) : (
-            <Reveal>
-              <div className="bg-white border border-border rounded-2xl px-8 py-16 md:py-20 text-center max-w-2xl mx-auto shadow-card">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-4">
-                  Reviews coming soon
-                </p>
-                <h2 className="text-3xl md:text-4xl font-serif text-navy mb-5">
-                  Be one of our first clients.
-                </h2>
-                <p className="text-charcoal/75 leading-relaxed mb-8 max-w-md mx-auto">
-                  We're a new studio building a track record of premium small business setups. Real client reviews will live here as they come in — and yours could be the first.
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-8 py-4 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
-                >
-                  Get Started <ArrowRight size={18} />
-                </Link>
-              </div>
-            </Reveal>
           )}
         </div>
       </section>
