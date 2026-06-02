@@ -47,6 +47,12 @@ export function Header() {
               {l.label}
             </Link>
           ))}
+          <a
+            href="tel:+17633030997"
+            className="hidden xl:inline-flex items-center gap-1.5 text-navy hover:text-amber transition-colors font-medium text-sm"
+          >
+            <Phone size={16} /> Call: 763-303-0997
+          </a>
           <Link
             to="/contact"
             className="bg-amber text-navy-deep font-semibold text-sm px-5 py-2.5 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
@@ -77,6 +83,12 @@ export function Header() {
                 {l.label}
               </Link>
             ))}
+            <a
+              href="tel:+17633030997"
+              className="inline-flex items-center gap-1.5 text-navy hover:text-amber transition-colors font-medium"
+            >
+              <Phone size={16} /> Call: 763-303-0997
+            </a>
             <Link
               to="/contact"
               className="bg-amber text-navy-deep font-semibold text-center px-5 py-3 rounded-full mt-2"
