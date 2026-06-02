@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Star } from "lucide-react";
+import logoAsset from "../../assets/portfolio/northern-linen/logo.jpg.asset.json";
 
 type Props = {
   name: string;
@@ -30,7 +31,13 @@ export function FlipReviewCard({ name, title, review }: Props) {
         }`}
       >
         {/* FRONT */}
-        <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl bg-gradient-to-br from-navy to-navy-deep border border-amber/30 shadow-card p-10 flex flex-col items-center justify-center text-center">
+        <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl bg-gradient-to-br from-navy to-navy-deep border border-amber/30 shadow-card p-10 flex flex-col items-center justify-center text-center overflow-hidden">
+          <img
+            src={logoAsset.url}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 m-auto w-[85%] h-[85%] object-contain opacity-10 mix-blend-screen pointer-events-none select-none"
+          />
           <div
             aria-hidden
             className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full pointer-events-none"
