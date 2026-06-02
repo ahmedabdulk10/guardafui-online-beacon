@@ -13,14 +13,14 @@ import { placeholderReviews } from "../lib/reviews-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guardafui Works — Get Your Small Business Online, Done Right" },
+      { title: "Small Business Website Setup in Minnesota | Guardafui Works" },
       {
         name: "description",
         content:
-          "Premium small business website setup, business email, hosting, and Google Business — built by an IT pro. Live in about a week.",
+          "Get your small business online in about a week. Custom website setup, business email, hosting, and Google Business — built by a Minnesota IT pro.",
       },
-      { property: "og:title", content: "Guardafui Works — Get Your Small Business Online" },
-      { property: "og:description", content: "Custom websites, business email and full online setup in about a week." },
+      { property: "og:title", content: "Small Business Website Setup in Minnesota | Guardafui Works" },
+      { property: "og:description", content: "Custom websites, business email and full online setup for Minnesota small businesses. Live in about a week." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -281,23 +281,47 @@ function Home() {
               Trusted by businesses getting online.
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {placeholderReviews.slice(0, 3).map((r, i) => (
-              <Reveal key={i} delay={i * 90}>
-                <ReviewCard review={r} />
+          {placeholderReviews.length > 0 ? (
+            <>
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                {placeholderReviews.slice(0, 3).map((r, i) => (
+                  <Reveal key={i} delay={i * 90}>
+                    <ReviewCard review={r} />
+                  </Reveal>
+                ))}
+              </div>
+              <Reveal delay={300}>
+                <div className="text-center">
+                  <Link
+                    to="/reviews"
+                    className="inline-flex items-center gap-2 border-2 border-navy text-navy font-semibold px-7 py-3.5 rounded-full hover:bg-navy hover:text-white transition-colors"
+                  >
+                    Read more reviews <ArrowRight size={18} />
+                  </Link>
+                </div>
               </Reveal>
-            ))}
-          </div>
-          <Reveal delay={300}>
-            <div className="text-center">
-              <Link
-                to="/reviews"
-                className="inline-flex items-center gap-2 border-2 border-navy text-navy font-semibold px-7 py-3.5 rounded-full hover:bg-navy hover:text-white transition-colors"
-              >
-                Read more reviews <ArrowRight size={18} />
-              </Link>
-            </div>
-          </Reveal>
+            </>
+          ) : (
+            <Reveal>
+              <div className="bg-white border border-border rounded-2xl px-8 py-14 md:py-16 text-center max-w-2xl mx-auto shadow-card">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-4">
+                  Reviews coming soon
+                </p>
+                <h3 className="text-2xl md:text-3xl font-serif text-navy mb-4">
+                  Be one of our first clients.
+                </h3>
+                <p className="text-charcoal/70 leading-relaxed mb-8 max-w-md mx-auto">
+                  We're a new studio building a track record of real, premium work. Get in touch and your story could be featured here.
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-7 py-3.5 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
+                >
+                  Get Started <ArrowRight size={18} />
+                </Link>
+              </div>
+            </Reveal>
+          )}
         </div>
       </section>
 

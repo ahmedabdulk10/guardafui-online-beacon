@@ -8,14 +8,14 @@ import { CALENDLY_URL } from "@/lib/site-config";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing — Guardafui Works" },
+      { title: "Pricing — Small Business Web Setup Packages from $750 | Guardafui Works" },
       {
         name: "description",
         content:
-          "Fixed-price packages for getting your small business online — from $750. Plus optional Care Plans from $150/month.",
+          "Fixed-price small business website setup packages from $750 — website, business email setup, hosting, and Google Business. Minnesota-based, fully remote.",
       },
-      { property: "og:title", content: "Pricing — Guardafui Works" },
-      { property: "og:description", content: "Launch, Grow, and Scale packages — fixed pricing, no surprises." },
+      { property: "og:title", content: "Pricing — Get Your Business Online from $750 | Guardafui Works" },
+      { property: "og:description", content: "Launch, Grow, and Scale packages — fixed pricing, no surprises. Built by a Minnesota IT pro." },
       { property: "og:url", content: "/pricing" },
     ],
     links: [{ rel: "canonical", href: "/pricing" }],
