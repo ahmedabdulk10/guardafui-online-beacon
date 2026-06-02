@@ -210,7 +210,7 @@ function ContactPage() {
                 <h2 className="text-2xl md:text-3xl font-serif text-white mb-3 leading-tight">
                   Prefer to reach out directly?
                 </h2>
-                <p className="text-white/70 leading-relaxed mb-8">
+                <p className="text-white/85 leading-relaxed mb-8">
                   Drop us a line and we'll get the conversation started. No pressure, no jargon — just
                   straight answers from a real IT professional.
                 </p>
@@ -292,7 +292,7 @@ function Field({
         name={name}
         required={required}
         placeholder={placeholder}
-        className="w-full bg-white border border-border rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-amber/40 focus:border-amber transition-all hover:border-charcoal/30 placeholder:text-charcoal/40"
+        className="w-full bg-white border border-border rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-amber/40 focus:border-amber transition-all hover:border-charcoal/30 placeholder:text-charcoal/60"
       />
     </div>
   );

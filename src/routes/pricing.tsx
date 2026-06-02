@@ -175,7 +175,7 @@ function PricingPage() {
                     </span>
                   )}
                   <h2 className="text-2xl font-serif mb-1">{t.name}</h2>
-                  <p className="text-sm text-charcoal/60 mb-5 min-h-[2.5rem]">{t.tag}</p>
+                  <p className="text-sm text-charcoal/75 mb-5 min-h-[2.5rem]">{t.tag}</p>
                   <div className="text-4xl font-serif text-navy mb-6">{t.price}</div>
                   <ul className="space-y-3 mb-8 flex-1">
                     {t.features.map((f) => (
@@ -300,11 +300,11 @@ function PricingPage() {
                     </span>
                   )}
                   <h3 className="text-2xl font-serif mb-1">{p.name}</h3>
-                  <p className="text-sm text-charcoal/60 mb-5 min-h-[2.5rem]">{p.tag}</p>
+                  <p className="text-sm text-charcoal/75 mb-5 min-h-[2.5rem]">{p.tag}</p>
                   <div className="mb-6">
                     <div className="text-4xl font-serif text-navy">
                       ${billing === "monthly" ? p.monthly : p.yearly.toLocaleString()}
-                      <span className="text-base text-charcoal/60 font-sans">
+                      <span className="text-base text-charcoal/75 font-sans">
                         {billing === "monthly" ? "/mo" : "/yr"}
                       </span>
                     </div>
@@ -336,7 +336,7 @@ function PricingPage() {
             ))}
           </div>
 
-          <p className="text-center text-sm text-charcoal/60 mt-10">
+          <p className="text-center text-sm text-charcoal/75 mt-10">
             Care Plans are optional and added after your setup.
           </p>
         </div>

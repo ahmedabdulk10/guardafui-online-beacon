@@ -219,7 +219,7 @@ function Home() {
                     </span>
                   )}
                   <h3 className="text-2xl font-serif mb-1">{t.name}</h3>
-                  <p className="text-sm text-charcoal/60 mb-5">{t.tag}</p>
+                  <p className="text-sm text-charcoal/75 mb-5">{t.tag}</p>
                   <div className="text-4xl font-serif text-navy mb-6">{t.price}</div>
                   <ul className="space-y-3 mb-8">
                     {t.features.map((f) => (
@@ -260,10 +260,10 @@ function Home() {
                   <div className="flex items-center gap-3 mb-5">
                     <span className="font-serif text-4xl text-amber">0{i + 1}</span>
                     <span className="flex-1 h-px bg-white/20" />
-                    <s.icon className="text-white/70" size={20} />
+                    <s.icon className="text-white/85" size={20} />
                   </div>
                   <h3 className="text-xl font-serif text-white mb-2">{s.title}</h3>
-                  <p className="text-white/65 text-sm leading-relaxed">{s.desc}</p>
+                  <p className="text-white/85 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               </Reveal>
             ))}
