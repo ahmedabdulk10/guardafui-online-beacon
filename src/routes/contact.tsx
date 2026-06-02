@@ -282,11 +282,12 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-semibold text-navy mb-2">
+      <label htmlFor={name} className="block text-sm font-semibold text-navy mb-2">
         {label}
         {required && <span className="text-amber"> *</span>}
       </label>
       <input
+        id={name}
         type={type}
         name={name}
         required={required}
