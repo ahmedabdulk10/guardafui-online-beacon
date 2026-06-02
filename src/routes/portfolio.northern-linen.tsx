@@ -86,16 +86,71 @@ function NorthernLinenPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">The Story</p>
           </Reveal>
           <Reveal delay={60}>
-            <h2 className="text-3xl md:text-4xl font-serif mb-6">Built from the ground up.</h2>
+            <h2 className="text-3xl md:text-4xl font-serif mb-6">Built from the ground up — every detail handled.</h2>
           </Reveal>
           <Reveal delay={120}>
-            <p className="text-lg text-charcoal/80 leading-relaxed">
+            <p className="text-lg text-charcoal/80 leading-relaxed mb-8">
               Northern Linen came to us as a brand-new premium laundry pickup and delivery service in South Loop
-              Bloomington. They had a strong brand vision but no way for customers to find them, book a pickup, or
-              pay online. They needed a complete online presence built from the ground up — a professional website
-              where customers could schedule pickups, a seamless booking and payment system, business email, and the
-              technical setup to run it all reliably. We built the entire foundation so they could launch and start
-              taking orders with confidence.
+              Bloomington. They had a strong brand vision — but absolutely nothing built. No website. No way for
+              customers to find them, book a pickup, or pay. No professional email. No systems to run the business.
+            </p>
+          </Reveal>
+          <Reveal delay={180}>
+            <p className="text-lg text-charcoal/80 leading-relaxed mb-8">
+              We built the entire operation from zero.
+            </p>
+          </Reveal>
+          <Reveal delay={240}>
+            <p className="text-lg text-charcoal/80 leading-relaxed mb-8">
+              We designed and developed a custom booking website where customers could schedule pickups in seconds, and
+              integrated a complete tech stack to power the whole business behind the scenes:
+            </p>
+          </Reveal>
+          <Reveal delay={300}>
+            <ul className="space-y-3 mb-8">
+              <li className="flex items-start gap-3 text-lg text-charcoal/80">
+                <span className="mt-1.5 w-5 h-5 rounded-full bg-amber flex items-center justify-center flex-shrink-0">
+                  <Check className="text-navy-deep" size={12} strokeWidth={3} />
+                </span>
+                <span><strong>Stripe</strong> — secure online payments and automated billing</span>
+              </li>
+              <li className="flex items-start gap-3 text-lg text-charcoal/80">
+                <span className="mt-1.5 w-5 h-5 rounded-full bg-amber flex items-center justify-center flex-shrink-0">
+                  <Check className="text-navy-deep" size={12} strokeWidth={3} />
+                </span>
+                <span><strong>Twilio</strong> — automated SMS notifications for pickups and deliveries</span>
+              </li>
+              <li className="flex items-start gap-3 text-lg text-charcoal/80">
+                <span className="mt-1.5 w-5 h-5 rounded-full bg-amber flex items-center justify-center flex-shrink-0">
+                  <Check className="text-navy-deep" size={12} strokeWidth={3} />
+                </span>
+                <span><strong>Resend</strong> — professional automated email confirmations</span>
+              </li>
+              <li className="flex items-start gap-3 text-lg text-charcoal/80">
+                <span className="mt-1.5 w-5 h-5 rounded-full bg-amber flex items-center justify-center flex-shrink-0">
+                  <Check className="text-navy-deep" size={12} strokeWidth={3} />
+                </span>
+                <span><strong>Custom domain &amp; professional business email</strong> setup</span>
+              </li>
+              <li className="flex items-start gap-3 text-lg text-charcoal/80">
+                <span className="mt-1.5 w-5 h-5 rounded-full bg-amber flex items-center justify-center flex-shrink-0">
+                  <Check className="text-navy-deep" size={12} strokeWidth={3} />
+                </span>
+                <span><strong>Brand logo design</strong></span>
+              </li>
+              <li className="flex items-start gap-3 text-lg text-charcoal/80">
+                <span className="mt-1.5 w-5 h-5 rounded-full bg-amber flex items-center justify-center flex-shrink-0">
+                  <Check className="text-navy-deep" size={12} strokeWidth={3} />
+                </span>
+                <span><strong>Full website design, build, and hosting</strong></span>
+              </li>
+            </ul>
+          </Reveal>
+          <Reveal delay={360}>
+            <p className="text-lg text-charcoal/80 leading-relaxed">
+              By the time we were done, Northern Linen wasn't just online — it was a fully operational business, ready
+              to take orders, process payments, and notify customers automatically from day one. We handled every
+              technical detail so they could focus on running their business.
             </p>
           </Reveal>
         </div>
