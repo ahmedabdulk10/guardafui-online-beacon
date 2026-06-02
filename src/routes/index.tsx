@@ -108,6 +108,21 @@ function Home() {
 
       </section>
 
+      {/* BENEFIT STRIP */}
+      <section className="bg-sand">
+        <div className="container-prose py-5 md:py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 text-sm sm:text-base font-medium text-navy tracking-tight">
+            <span>Quality &amp; Speed</span>
+            <span className="hidden sm:inline text-amber mx-3">•</span>
+            <span>Built by an IT pro</span>
+            <span className="hidden sm:inline text-amber mx-3">•</span>
+            <span>100% remote</span>
+            <span className="hidden sm:inline text-amber mx-3">•</span>
+            <span>Yours to keep</span>
+          </div>
+        </div>
+      </section>
+
       {/* WHAT WE DO */}
       <section className="bg-white py-24 md:py-32">
         <div className="container-prose">
