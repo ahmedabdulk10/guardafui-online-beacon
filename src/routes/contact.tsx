@@ -131,10 +131,11 @@ function ContactPage() {
                 <Field label="Business Name" name="business" placeholder="Optional" />
 
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label htmlFor="need" className="block text-sm font-semibold text-navy mb-2">
                     What do you need? <span className="text-amber">*</span>
                   </label>
                   <select
+                    id="need"
                     name="need"
                     required
                     defaultValue=""
