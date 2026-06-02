@@ -38,8 +38,8 @@ const tiers = [
     ],
     popular: false,
     cta: "Get Started",
-    href: STRIPE_LAUNCH_URL,
-    external: true,
+    href: "/contact",
+    external: false,
   },
   {
     name: "Grow",
