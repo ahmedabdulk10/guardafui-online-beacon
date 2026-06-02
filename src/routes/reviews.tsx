@@ -1,0 +1,91 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { Reveal } from "../components/site/Reveal";
+import { ReviewCard } from "../components/site/Reviews";
+import { BeaconWatermark } from "../components/site/Beacon";
+import { placeholderReviews } from "../lib/reviews-data";
+
+export const Route = createFileRoute("/reviews")({
+  head: () => ({
+    meta: [
+      { title: "Reviews — Guardafui Works" },
+      {
+        name: "description",
+        content:
+          "Read what small business clients say about working with Guardafui Works — websites, email, hosting and Google Business done right.",
+      },
+      { property: "og:title", content: "Reviews — Guardafui Works" },
+      {
+        property: "og:description",
+        content: "What it's like to work with Guardafui Works.",
+      },
+      { property: "og:url", content: "/reviews" },
+    ],
+    links: [{ rel: "canonical", href: "/reviews" }],
+  }),
+  component: ReviewsPage,
+});
+
+function ReviewsPage() {
+  return (
+    <>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-white">
+        <BeaconWatermark className="absolute -right-32 -top-20 w-[700px] text-amber pointer-events-none" />
+        <div className="container-prose pt-20 pb-16 md:pt-28 md:pb-20 relative">
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-4">
+              What Clients Say
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className="text-5xl md:text-7xl leading-[1.05] font-serif text-navy mb-6">
+              Reviews
+            </h1>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="text-lg md:text-xl text-charcoal/75 max-w-2xl leading-relaxed">
+              What it's like to work with Guardafui Works.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* GRID */}
+      <section className="bg-sand py-20 md:py-28">
+        <div className="container-prose">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {placeholderReviews.map((r, i) => (
+              <Reveal key={i} delay={(i % 3) * 80}>
+                <ReviewCard review={r} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-navy text-white relative overflow-hidden">
+        <div className="container-prose py-20 md:py-24 text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl text-white font-serif mb-6">
+            Ready to join them?
+          </h2>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-8 py-4 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
+          >
+            Get Started <ArrowRight size={18} />
+          </Link>
+        </div>
+        <div
+          aria-hidden
+          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, oklch(0.738 0.131 75 / 0.15) 0%, transparent 60%)",
+          }}
+        />
+      </section>
+    </>
+  );
+}
