@@ -33,7 +33,7 @@ export function Header() {
           <img src={logoBlue.url} alt="Guardafui Works" className="h-20 md:h-24 w-auto" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-9 text-2xl">
+        <nav className="hidden lg:flex items-center gap-9 text-lg">
           {navLinks.map((l) => (
             <Link
               key={l.to}
