@@ -38,7 +38,7 @@ export function Header() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm font-medium text-charcoal/80 hover:text-navy transition-colors"
+              className="font-medium text-charcoal/80 hover:text-navy transition-colors text-2xl"
               activeProps={{ className: "text-navy" }}
               activeOptions={{ exact: true }}
             >
