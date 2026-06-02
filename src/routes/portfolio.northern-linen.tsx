@@ -11,7 +11,7 @@ import mobileBookingAsset from "../assets/portfolio/northern-linen/mobile-bookin
 export const Route = createFileRoute("/portfolio/northern-linen")({
   head: () => ({
     meta: [
-      { title: "Northern Linen Case Study — Laundry Service Website | Guardafui Works" },
+      { title: "Northern Linen Case Study | Guardafui Works" },
       { name: "description", content: "How we built Northern Linen — a premium laundry pickup & delivery website with booking, payments, and business email setup in Bloomington, MN." },
       { property: "og:title", content: "Northern Linen — Case Study | Guardafui Works" },
       { property: "og:description", content: "A complete online presence for a premium laundry service in South Loop Bloomington." },

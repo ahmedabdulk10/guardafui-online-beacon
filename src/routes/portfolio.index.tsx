@@ -7,7 +7,7 @@ import northernLinenLogo from "../assets/portfolio/northern-linen/logo.jpg.asset
 export const Route = createFileRoute("/portfolio/")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Small Business Website Setup in Minnesota | Guardafui Works" },
+      { title: "Portfolio: Small Business Web Setup | Guardafui Works" },
       { name: "description", content: "Recent websites and online setups built by Guardafui Works — premium service businesses, brand studios, and Minnesota small businesses online done right." },
       { property: "og:title", content: "Portfolio — Guardafui Works" },
       { property: "og:description", content: "Recent small business website setups — laundry service, brand studio, and more." },

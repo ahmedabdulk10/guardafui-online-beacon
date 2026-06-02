@@ -8,7 +8,7 @@ import { FinalCTA } from "../components/site/CTA";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Business Email Setup, Websites & Hosting | Guardafui Works" },
+      { title: "Websites, Email & Hosting Services | Guardafui Works" },
       {
         name: "description",
         content:
