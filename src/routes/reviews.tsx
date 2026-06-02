@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
 import { ReviewCard } from "../components/site/Reviews";
+import { FlipReviewCard, northernLinenReview } from "../components/site/FlipReviewCard";
 import { BeaconWatermark } from "../components/site/Beacon";
 import { placeholderReviews } from "../lib/reviews-data";
 

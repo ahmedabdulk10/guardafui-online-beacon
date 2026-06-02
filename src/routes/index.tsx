@@ -7,6 +7,7 @@ import { BeaconWatermark } from "../components/site/Beacon";
 import { Reveal } from "../components/site/Reveal";
 import { FinalCTA } from "../components/site/CTA";
 import { ReviewCard } from "../components/site/Reviews";
+import { FlipReviewCard, northernLinenReview } from "../components/site/FlipReviewCard";
 import { placeholderReviews } from "../lib/reviews-data";
 
 
@@ -281,43 +282,17 @@ function Home() {
               Trusted by businesses getting online.
             </h2>
           </div>
-          {placeholderReviews.length > 0 ? (
-            <>
-              <div className="grid md:grid-cols-3 gap-6 mb-12">
-                {placeholderReviews.slice(0, 3).map((r, i) => (
-                  <Reveal key={i} delay={i * 90}>
-                    <ReviewCard review={r} />
-                  </Reveal>
-                ))}
-              </div>
-              <Reveal delay={300}>
-                <div className="text-center">
-                  <Link
-                    to="/reviews"
-                    className="inline-flex items-center gap-2 border-2 border-navy text-navy font-semibold px-7 py-3.5 rounded-full hover:bg-navy hover:text-white transition-colors"
-                  >
-                    Read more reviews <ArrowRight size={18} />
-                  </Link>
-                </div>
-              </Reveal>
-            </>
-          ) : (
-            <Reveal>
-              <div className="bg-white border border-border rounded-2xl px-8 py-14 md:py-16 text-center max-w-2xl mx-auto shadow-card">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-4">
-                  Reviews coming soon
-                </p>
-                <h3 className="text-2xl md:text-3xl font-serif text-navy mb-4">
-                  Be one of our first clients.
-                </h3>
-                <p className="text-charcoal/70 leading-relaxed mb-8 max-w-md mx-auto">
-                  We're a new studio building a track record of real, premium work. Get in touch and your story could be featured here.
-                </p>
+          <Reveal>
+            <FlipReviewCard {...northernLinenReview} />
+          </Reveal>
+          {placeholderReviews.length > 0 && (
+            <Reveal delay={200}>
+              <div className="text-center mt-12">
                 <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-7 py-3.5 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
+                  to="/reviews"
+                  className="inline-flex items-center gap-2 border-2 border-navy text-navy font-semibold px-7 py-3.5 rounded-full hover:bg-navy hover:text-white transition-colors"
                 >
-                  Get Started <ArrowRight size={18} />
+                  Read more reviews <ArrowRight size={18} />
                 </Link>
               </div>
             </Reveal>
