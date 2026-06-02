@@ -8,8 +8,10 @@ const navLinks = [
   { to: "/services", label: "Services" },
   { to: "/pricing", label: "Pricing" },
   { to: "/portfolio", label: "Portfolio" },
+  { to: "/reviews", label: "Reviews" },
   { to: "/contact", label: "Contact" },
 ] as const;
+
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);

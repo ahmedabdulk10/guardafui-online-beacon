@@ -6,6 +6,9 @@ import {
 import { BeaconWatermark } from "../components/site/Beacon";
 import { Reveal } from "../components/site/Reveal";
 import { FinalCTA } from "../components/site/CTA";
+import { ReviewCard } from "../components/site/Reviews";
+import { placeholderReviews } from "../lib/reviews-data";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -267,7 +270,39 @@ function Home() {
         </div>
       </section>
 
+      {/* REVIEWS */}
+      <section className="bg-sand py-24 md:py-32">
+        <div className="container-prose">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">
+              What Clients Say
+            </p>
+            <h2 className="text-4xl md:text-5xl font-serif">
+              Trusted by businesses getting online.
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {placeholderReviews.slice(0, 3).map((r, i) => (
+              <Reveal key={i} delay={i * 90}>
+                <ReviewCard review={r} />
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={300}>
+            <div className="text-center">
+              <Link
+                to="/reviews"
+                className="inline-flex items-center gap-2 border-2 border-navy text-navy font-semibold px-7 py-3.5 rounded-full hover:bg-navy hover:text-white transition-colors"
+              >
+                Read more reviews <ArrowRight size={18} />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <FinalCTA />
+
     </>
   );
 }
