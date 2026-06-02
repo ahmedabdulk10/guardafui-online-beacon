@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ImageIcon } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
 import { FinalCTA } from "../components/site/CTA";
@@ -24,20 +24,7 @@ const projects = [
     desc: "A premium laundry pickup & delivery business site — bookings, service areas, and pricing.",
     accent: "from-navy to-navy-deep",
     image: null as string | null, // TODO: replace with /assets/portfolio/northern-linen.png
-  },
-  {
-    name: "Rayhana Co.",
-    type: "Social Media Brand",
-    desc: "A social media content studio site — portfolio, services, and client inquiries in one place.",
-    accent: "from-amber to-amber/70",
-    image: null as string | null, // TODO: replace with /assets/portfolio/rayhana-co.png
-  },
-  {
-    name: "Guardafui Works",
-    type: "Business Setup Studio",
-    desc: "This site — the studio behind the work. Built end-to-end on our own stack.",
-    accent: "from-navy-deep to-navy",
-    image: null as string | null, // TODO: replace with /assets/portfolio/guardafui-works.png
+    href: "/portfolio/northern-linen" as const,
   },
 ];
 
@@ -64,34 +51,42 @@ function PortfolioPage() {
 
       <section className="bg-white py-20 md:py-28">
         <div className="container-prose">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div className="grid gap-7 max-w-2xl mx-auto">
             {projects.map((p, i) => (
               <Reveal key={p.name} delay={(i % 3) * 80}>
-                <article className="group bg-white rounded-2xl overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1 h-full flex flex-col">
-                  <div className={`relative aspect-[4/3] bg-gradient-to-br ${p.accent} flex items-center justify-center overflow-hidden`}>
-                    {p.image ? (
-                      <img src={p.image} alt={`${p.name} — ${p.type}`} className="absolute inset-0 w-full h-full object-cover" />
-                    ) : (
-                      <>
-                        <ImageIcon className="text-white/30" size={56} />
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]" />
-                        <span className="absolute top-4 right-4 text-xs text-white/70 uppercase tracking-wider">
-                          Screenshot coming soon
+                <Link
+                  to={p.href}
+                  className="group block bg-white rounded-2xl overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1 h-full"
+                >
+                  <article className="flex flex-col h-full">
+                    <div className={`relative aspect-[16/10] bg-gradient-to-br ${p.accent} flex items-center justify-center overflow-hidden`}>
+                      {p.image ? (
+                        <img src={p.image} alt={`${p.name} — ${p.type}`} className="absolute inset-0 w-full h-full object-cover" />
+                      ) : (
+                        <>
+                          <ImageIcon className="text-white/30" size={72} />
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]" />
+                          <span className="absolute top-4 right-4 text-xs text-white/70 uppercase tracking-wider">
+                            Screenshot coming soon
+                          </span>
+                        </>
+                      )}
+                    </div>
+                    <div className="p-8 flex items-start justify-between gap-4 flex-1">
+                      <div className="flex-1">
+                        <p className="text-xs uppercase tracking-wider text-amber font-semibold mb-2">{p.type}</p>
+                        <h2 className="text-2xl font-serif mb-2">{p.name}</h2>
+                        <p className="text-sm text-charcoal/70 leading-relaxed mb-4">{p.desc}</p>
+                        <span className="text-sm font-semibold text-navy group-hover:text-amber transition-colors">
+                          Read case study →
                         </span>
-                      </>
-                    )}
-                  </div>
-                  <div className="p-7 flex items-start justify-between gap-4 flex-1">
-                    <div className="flex-1">
-                      <p className="text-xs uppercase tracking-wider text-amber font-semibold mb-2">{p.type}</p>
-                      <h2 className="text-2xl font-serif mb-2">{p.name}</h2>
-                      <p className="text-sm text-charcoal/70 leading-relaxed">{p.desc}</p>
+                      </div>
+                      <div className="w-10 h-10 rounded-full bg-sand flex items-center justify-center group-hover:bg-amber transition-colors flex-shrink-0">
+                        <ArrowUpRight className="text-navy" size={18} />
+                      </div>
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-sand flex items-center justify-center group-hover:bg-amber transition-colors flex-shrink-0">
-                      <ArrowUpRight className="text-navy" size={18} />
-                    </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               </Reveal>
             ))}
           </div>
