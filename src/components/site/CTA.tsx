@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Phone } from "lucide-react";
 
 export function FinalCTA() {
   return (
@@ -18,12 +17,6 @@ export function FinalCTA() {
         >
           Get Started
         </Link>
-        <a
-          href="tel:+17633030997"
-          className="mt-4 inline-flex items-center gap-2 text-white/80 hover:text-amber transition-colors font-medium"
-        >
-          <Phone size={16} /> Call or text: 763-303-0997
-        </a>
       </div>
       <div
         aria-hidden
