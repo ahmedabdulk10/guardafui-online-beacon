@@ -6,10 +6,10 @@ import { FinalCTA } from "../components/site/CTA";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Guardafui Works" },
-      { name: "description", content: "Recent small business websites and online setups built by Guardafui Works." },
+      { title: "Portfolio — Small Business Website Setup in Minnesota | Guardafui Works" },
+      { name: "description", content: "Recent websites and online setups built by Guardafui Works — premium service businesses, brand studios, and Minnesota small businesses online done right." },
       { property: "og:title", content: "Portfolio — Guardafui Works" },
-      { property: "og:description", content: "Recent work — small business websites done right." },
+      { property: "og:description", content: "Recent small business website setups — laundry service, brand studio, and more." },
       { property: "og:url", content: "/portfolio" },
     ],
     links: [{ rel: "canonical", href: "/portfolio" }],
@@ -18,10 +18,27 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 const projects = [
-  { name: "Coastal Bookkeeping Co.", type: "Service Business Website", accent: "from-navy to-navy-deep" },
-  { name: "Marrow & Stone", type: "Restaurant Website + Booking", accent: "from-amber to-amber/70" },
-  { name: "Northbeam Logistics", type: "Corporate Website + Email", accent: "from-navy-deep to-navy" },
-  { name: "Linden Family Dental", type: "Local Business + Google Profile", accent: "from-charcoal to-navy" },
+  {
+    name: "Northern Linen",
+    type: "Laundry Service Website",
+    desc: "A premium laundry pickup & delivery business site — bookings, service areas, and pricing.",
+    accent: "from-navy to-navy-deep",
+    image: null as string | null, // TODO: replace with /assets/portfolio/northern-linen.png
+  },
+  {
+    name: "Rayhana Co.",
+    type: "Social Media Brand",
+    desc: "A social media content studio site — portfolio, services, and client inquiries in one place.",
+    accent: "from-amber to-amber/70",
+    image: null as string | null, // TODO: replace with /assets/portfolio/rayhana-co.png
+  },
+  {
+    name: "Guardafui Works",
+    type: "Business Setup Studio",
+    desc: "This site — the studio behind the work. Built end-to-end on our own stack.",
+    accent: "from-navy-deep to-navy",
+    image: null as string | null, // TODO: replace with /assets/portfolio/guardafui-works.png
+  },
 ];
 
 function PortfolioPage() {
