@@ -19,6 +19,93 @@ export const Route = createFileRoute("/services")({
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Small Business Web Setup",
+          "provider": {
+            "@type": "Organization",
+            "name": "Guardafui Works",
+            "url": "https://guardafuiworks.com",
+          },
+          "areaServed": "Minnesota",
+          "description": "Small business website setup, business email setup, domain & hosting, Google Business, booking and payments — handled end-to-end by a Minnesota IT pro.",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Guardafui Works Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Domain Registration & Setup",
+                  "description": "We help you pick the right domain, register it properly, and configure DNS, email records, and redirects — no loose ends.",
+                },
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Professional Business Email",
+                  "description": "you@yourbusiness.com on Microsoft 365 or Google Workspace. We handle the records, the migration, and the security so your mail just works.",
+                },
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Google Business Profile",
+                  "description": "Show up on Google Maps and local Search. We set up your profile, verify it, and optimize categories, photos, and hours.",
+                },
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Custom Website Design & Build",
+                  "description": "A hand-crafted, fast-loading site built around your business — not a tweaked template. Mobile-first, SEO-friendly, and easy for you to update.",
+                },
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Cloud Hosting (Azure / AWS)",
+                  "description": "Optional / if needed. Premium hosting on enterprise cloud infrastructure. Fast, scalable, secure — the same backbone larger businesses run on.",
+                },
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Booking System Integration",
+                  "description": "Let clients book directly from your site. We integrate Calendly, Acuity, or other tools cleanly into your website's flow.",
+                },
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Payment Setup (Stripe / Square)",
+                  "description": "Accept cards online or in person. We set up your payment provider and connect it to your site, booking, or invoicing.",
+                },
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Logo Design",
+                  "description": "A clean, modern logo that works on a sign, a website, and a tiny favicon. Delivered with all the file formats you'll ever need.",
+                },
+              },
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 });

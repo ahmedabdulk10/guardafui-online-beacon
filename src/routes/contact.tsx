@@ -15,6 +15,20 @@ export const Route = createFileRoute("/contact")({
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Guardafui Works",
+          "url": "https://guardafuiworks.com",
+          "email": CONTACT_EMAIL,
+          "telephone": "+1-763-303-0997",
+          "areaServed": "Minnesota",
+        }),
+      },
+    ],
   }),
   component: ContactPage,
 });

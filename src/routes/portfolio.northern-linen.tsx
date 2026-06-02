@@ -19,6 +19,22 @@ export const Route = createFileRoute("/portfolio/northern-linen")({
       { property: "og:url", content: "/portfolio/northern-linen" },
     ],
     links: [{ rel: "canonical", href: "/portfolio/northern-linen" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Northern Linen Case Study",
+          "image": homeAsset.url,
+          "description": "How we built Northern Linen — a premium laundry pickup & delivery website with booking, payments, and business email setup in Bloomington, MN.",
+          "author": {
+            "@type": "Organization",
+            "name": "Guardafui Works",
+          },
+        }),
+      },
+    ],
   }),
   component: NorthernLinenPage,
 });
