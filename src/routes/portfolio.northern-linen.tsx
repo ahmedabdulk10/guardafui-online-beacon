@@ -32,6 +32,7 @@ const builtItems = [
 ];
 
 const galleryImages = [
+  { src: homeAsset.url, alt: "Northern Linen desktop home page", label: "Home — Desktop" },
   { src: bookingAsset.url, alt: "Northern Linen desktop booking page", label: "Booking — Desktop" },
   { src: mobileHomeAsset.url, alt: "Northern Linen mobile home page", label: "Home — Mobile" },
   { src: mobileBookingAsset.url, alt: "Northern Linen mobile booking page", label: "Booking — Mobile" },
@@ -76,11 +77,6 @@ function NorthernLinenPage() {
             </div>
           </div>
 
-          <Reveal delay={220}>
-            <div className="mt-12 relative aspect-[16/10] rounded-2xl overflow-hidden bg-white border border-border shadow-card-hover">
-              <img src={homeAsset.url} alt="Northern Linen website home page" className="absolute inset-0 w-full h-full object-cover object-top" />
-            </div>
-          </Reveal>
         </div>
       </section>
 
