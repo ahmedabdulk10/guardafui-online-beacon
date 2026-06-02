@@ -32,10 +32,10 @@ const builtItems = [
 ];
 
 const galleryImages = [
-  { src: homeAsset.url, alt: "Northern Linen desktop home page", label: "Home — Desktop" },
-  { src: bookingAsset.url, alt: "Northern Linen desktop booking page", label: "Booking — Desktop" },
-  { src: mobileHomeAsset.url, alt: "Northern Linen mobile home page", label: "Home — Mobile" },
-  { src: mobileBookingAsset.url, alt: "Northern Linen mobile booking page", label: "Booking — Mobile" },
+  { src: homeAsset.url, alt: "Northern Linen desktop home page", label: "Home — Desktop", width: 1255, height: 1920 },
+  { src: bookingAsset.url, alt: "Northern Linen desktop booking page", label: "Booking — Desktop", width: 760, height: 1920 },
+  { src: mobileHomeAsset.url, alt: "Northern Linen mobile home page", label: "Home — Mobile", width: 337, height: 1920 },
+  { src: mobileBookingAsset.url, alt: "Northern Linen mobile booking page", label: "Booking — Mobile", width: 261, height: 1920 },
 ];
 
 function NorthernLinenPage() {
@@ -55,7 +55,7 @@ function NorthernLinenPage() {
           <div className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center max-w-4xl">
             <Reveal>
               <div className="bg-white rounded-2xl border border-border shadow-card p-6 w-40 h-40 md:w-48 md:h-48 flex items-center justify-center mx-auto md:mx-0">
-                <img src={logoAsset.url} alt="Northern Linen logo" className="max-w-full max-h-full object-contain" />
+                <img src={logoAsset.url} alt="Northern Linen logo" width={726} height={533} className="max-w-full max-h-full object-contain" />
               </div>
             </Reveal>
             <div>
@@ -211,6 +211,8 @@ function NorthernLinenPage() {
                     <img
                       src={img.src}
                       alt={img.alt}
+                      width={img.width}
+                      height={img.height}
                       className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   </div>

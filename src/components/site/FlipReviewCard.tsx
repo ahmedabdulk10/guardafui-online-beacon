@@ -36,6 +36,8 @@ export function FlipReviewCard({ name, title, review }: Props) {
             src={logoAsset.url}
             alt=""
             aria-hidden
+            width={726}
+            height={533}
             className="absolute inset-0 m-auto w-[85%] h-[85%] object-contain opacity-10 mix-blend-screen pointer-events-none select-none"
           />
           <div

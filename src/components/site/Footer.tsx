@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container-prose py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
           <Link to="/" className="inline-flex items-center mb-4">
-            <img src={logoWhite.url} alt="Guardafui Works" className="h-36 md:h-44 w-auto -ml-3" />
+            <img src={logoWhite.url} alt="Guardafui Works" width={1254} height={1254} className="h-36 md:h-44 w-auto -ml-3" />
           </Link>
           <p className="max-w-md text-sm leading-relaxed text-charcoal/60">
             A remote tech studio helping small businesses look established from day one — custom

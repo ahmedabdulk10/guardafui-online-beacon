@@ -63,6 +63,8 @@ function PortfolioPage() {
                       <img
                         src={p.logo}
                         alt={`${p.name} logo`}
+                        width={726}
+                        height={533}
                         className="max-h-full max-w-[70%] object-contain transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
