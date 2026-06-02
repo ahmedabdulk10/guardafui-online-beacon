@@ -151,10 +151,11 @@ function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold text-navy mb-2">
                     Message <span className="text-amber">*</span>
                   </label>
                   <textarea
+                    id="message"
                     name="message"
                     rows={5}
                     required
