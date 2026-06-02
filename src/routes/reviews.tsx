@@ -8,11 +8,11 @@ import { placeholderReviews } from "../lib/reviews-data";
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
-      { title: "Reviews — Guardafui Works" },
+      { title: "Client Reviews — Guardafui Works | Minnesota Small Business Web Setup" },
       {
         name: "description",
         content:
-          "Read what small business clients say about working with Guardafui Works — websites, email, hosting and Google Business done right.",
+          "Reviews and testimonials for Guardafui Works — small business website setup, business email, and online presence done right.",
       },
       { property: "og:title", content: "Reviews — Guardafui Works" },
       {
@@ -27,6 +27,8 @@ export const Route = createFileRoute("/reviews")({
 });
 
 function ReviewsPage() {
+  const hasReviews = placeholderReviews.length > 0;
+
   return (
     <>
       {/* HERO */}
@@ -51,41 +53,65 @@ function ReviewsPage() {
         </div>
       </section>
 
-      {/* GRID */}
+      {/* GRID OR EMPTY STATE */}
       <section className="bg-sand py-20 md:py-28">
         <div className="container-prose">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {placeholderReviews.map((r, i) => (
-              <Reveal key={i} delay={(i % 3) * 80}>
-                <ReviewCard review={r} />
-              </Reveal>
-            ))}
-          </div>
+          {hasReviews ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {placeholderReviews.map((r, i) => (
+                <Reveal key={i} delay={(i % 3) * 80}>
+                  <ReviewCard review={r} />
+                </Reveal>
+              ))}
+            </div>
+          ) : (
+            <Reveal>
+              <div className="bg-white border border-border rounded-2xl px-8 py-16 md:py-20 text-center max-w-2xl mx-auto shadow-card">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-4">
+                  Reviews coming soon
+                </p>
+                <h2 className="text-3xl md:text-4xl font-serif text-navy mb-5">
+                  Be one of our first clients.
+                </h2>
+                <p className="text-charcoal/75 leading-relaxed mb-8 max-w-md mx-auto">
+                  We're a new studio building a track record of premium small business setups. Real client reviews will live here as they come in — and yours could be the first.
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-8 py-4 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
+                >
+                  Get Started <ArrowRight size={18} />
+                </Link>
+              </div>
+            </Reveal>
+          )}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-navy text-white relative overflow-hidden">
-        <div className="container-prose py-20 md:py-24 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl text-white font-serif mb-6">
-            Ready to join them?
-          </h2>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-8 py-4 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
-          >
-            Get Started <ArrowRight size={18} />
-          </Link>
-        </div>
-        <div
-          aria-hidden
-          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, oklch(0.738 0.131 75 / 0.15) 0%, transparent 60%)",
-          }}
-        />
-      </section>
+      {hasReviews && (
+        <section className="bg-navy text-white relative overflow-hidden">
+          <div className="container-prose py-20 md:py-24 text-center relative z-10">
+            <h2 className="text-3xl md:text-5xl text-white font-serif mb-6">
+              Ready to join them?
+            </h2>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-amber text-navy-deep font-semibold px-8 py-4 rounded-full hover:shadow-amber transition-all hover:-translate-y-0.5"
+            >
+              Get Started <ArrowRight size={18} />
+            </Link>
+          </div>
+          <div
+            aria-hidden
+            className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, oklch(0.738 0.131 75 / 0.15) 0%, transparent 60%)",
+            }}
+          />
+        </section>
+      )}
     </>
   );
 }
