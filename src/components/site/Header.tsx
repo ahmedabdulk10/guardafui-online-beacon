@@ -28,12 +28,12 @@ export function Header() {
         scrolled ? "bg-white/90 backdrop-blur-md shadow-card" : "bg-white"
       }`}
     >
-      <div className="container-prose flex items-center justify-between h-24 md:h-28">
+      <div className="container-prose flex items-center justify-between h-24 md:h-28 text-4xl">
         <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
           <img src={logoBlue.url} alt="Guardafui Works" className="h-20 md:h-24 w-auto" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-9">
+        <nav className="hidden lg:flex items-center gap-9 text-2xl">
           {navLinks.map((l) => (
             <Link
               key={l.to}
