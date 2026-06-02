@@ -15,6 +15,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortfolioNorthernLinenRouteImport } from './routes/portfolio.northern-linen'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -46,31 +47,39 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioNorthernLinenRoute = PortfolioNorthernLinenRouteImport.update({
+  id: '/northern-linen',
+  path: '/northern-linen',
+  getParentRoute: () => PortfolioRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
+  '/portfolio/northern-linen': typeof PortfolioNorthernLinenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
+  '/portfolio/northern-linen': typeof PortfolioNorthernLinenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
+  '/portfolio/northern-linen': typeof PortfolioNorthernLinenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,8 +90,16 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/reviews'
     | '/services'
+    | '/portfolio/northern-linen'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/portfolio' | '/pricing' | '/reviews' | '/services'
+  to:
+    | '/'
+    | '/contact'
+    | '/portfolio'
+    | '/pricing'
+    | '/reviews'
+    | '/services'
+    | '/portfolio/northern-linen'
   id:
     | '__root__'
     | '/'
@@ -91,12 +108,13 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/reviews'
     | '/services'
+    | '/portfolio/northern-linen'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  PortfolioRoute: typeof PortfolioRoute
+  PortfolioRoute: typeof PortfolioRouteWithChildren
   PricingRoute: typeof PricingRoute
   ReviewsRoute: typeof ReviewsRoute
   ServicesRoute: typeof ServicesRoute
@@ -146,13 +164,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/northern-linen': {
+      id: '/portfolio/northern-linen'
+      path: '/northern-linen'
+      fullPath: '/portfolio/northern-linen'
+      preLoaderRoute: typeof PortfolioNorthernLinenRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
   }
 }
+
+interface PortfolioRouteChildren {
+  PortfolioNorthernLinenRoute: typeof PortfolioNorthernLinenRoute
+}
+
+const PortfolioRouteChildren: PortfolioRouteChildren = {
+  PortfolioNorthernLinenRoute: PortfolioNorthernLinenRoute,
+}
+
+const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
+  PortfolioRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  PortfolioRoute: PortfolioRoute,
+  PortfolioRoute: PortfolioRouteWithChildren,
   PricingRoute: PricingRoute,
   ReviewsRoute: ReviewsRoute,
   ServicesRoute: ServicesRoute,
