@@ -14,7 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
 import logo from "@/assets/guardafui-logo-transparent.png.asset.json";
-import { SITE_URL } from "@/lib/site-config";
+import { SITE_URL, CONTACT_EMAIL } from "@/lib/site-config";
 
 const OG_IMAGE = `${SITE_URL}${logo.url}`;
 
@@ -119,6 +119,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: logo.url },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "name": "Guardafui Works",
+              "url": SITE_URL,
+              "logo": OG_IMAGE,
+              "email": CONTACT_EMAIL,
+              "telephone": "+1-763-303-0997",
+            },
+            {
+              "@type": "WebSite",
+              "name": "Guardafui Works",
+              "url": SITE_URL,
+            },
+          ],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
