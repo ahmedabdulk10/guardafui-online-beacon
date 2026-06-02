@@ -1,7 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, ImageIcon, ArrowLeft } from "lucide-react";
+import { Check, ArrowLeft } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
 import { FinalCTA } from "../components/site/CTA";
+import logoAsset from "../assets/portfolio/northern-linen/logo.jpg.asset.json";
+import homeAsset from "../assets/portfolio/northern-linen/home.png.asset.json";
+import bookingAsset from "../assets/portfolio/northern-linen/booking.png.asset.json";
+import mobileHomeAsset from "../assets/portfolio/northern-linen/mobile-home.png.asset.json";
+import mobileBookingAsset from "../assets/portfolio/northern-linen/mobile-booking.png.asset.json";
 
 export const Route = createFileRoute("/portfolio/northern-linen")({
   head: () => ({
@@ -10,6 +15,7 @@ export const Route = createFileRoute("/portfolio/northern-linen")({
       { name: "description", content: "How we built Northern Linen — a premium laundry pickup & delivery website with booking, payments, and business email setup in Bloomington, MN." },
       { property: "og:title", content: "Northern Linen — Case Study | Guardafui Works" },
       { property: "og:description", content: "A complete online presence for a premium laundry service in South Loop Bloomington." },
+      { property: "og:image", content: homeAsset.url },
       { property: "og:url", content: "/portfolio/northern-linen" },
     ],
     links: [{ rel: "canonical", href: "/portfolio/northern-linen" }],
@@ -25,9 +31,11 @@ const builtItems = [
   "Mobile-first responsive design",
 ];
 
-// TODO: replace with /assets/portfolio/northern-linen/*.png
-const heroImage: string | null = null;
-const galleryImages: (string | null)[] = [null, null, null];
+const galleryImages = [
+  { src: bookingAsset.url, alt: "Northern Linen desktop booking page", label: "Booking — Desktop" },
+  { src: mobileHomeAsset.url, alt: "Northern Linen mobile home page", label: "Home — Mobile" },
+  { src: mobileBookingAsset.url, alt: "Northern Linen mobile booking page", label: "Booking — Mobile" },
+];
 
 function NorthernLinenPage() {
   return (
@@ -42,67 +50,58 @@ function NorthernLinenPage() {
               <ArrowLeft size={16} /> Back to Portfolio
             </Link>
           </Reveal>
-          <div className="max-w-3xl">
+
+          <div className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center max-w-4xl">
             <Reveal>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-4">
-                Case Study — Laundry Service
-              </p>
+              <div className="bg-white rounded-2xl border border-border shadow-card p-6 w-40 h-40 md:w-48 md:h-48 flex items-center justify-center mx-auto md:mx-0">
+                <img src={logoAsset.url} alt="Northern Linen logo" className="max-w-full max-h-full object-contain" />
+              </div>
             </Reveal>
-            <Reveal delay={80}>
-              <h1 className="text-5xl md:text-6xl font-serif mb-6">
-                Northern <em className="text-amber not-italic">Linen.</em>
-              </h1>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="text-lg text-charcoal/75 leading-relaxed">
-                A premium laundry pickup & delivery service — taken from idea to a fully operational online business.
-              </p>
-            </Reveal>
+            <div>
+              <Reveal>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-4">
+                  Case Study — Laundry Service
+                </p>
+              </Reveal>
+              <Reveal delay={80}>
+                <h1 className="text-5xl md:text-6xl font-serif mb-5">
+                  Northern <em className="text-amber not-italic">Linen.</em>
+                </h1>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="text-lg text-charcoal/75 leading-relaxed">
+                  A premium laundry pickup & delivery service — taken from idea to a fully operational online business.
+                </p>
+              </Reveal>
+            </div>
           </div>
 
           <Reveal delay={220}>
-            <div className="mt-12 relative aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-navy to-navy-deep shadow-card-hover">
-              {heroImage ? (
-                <img src={heroImage} alt="Northern Linen website hero" className="absolute inset-0 w-full h-full object-cover" />
-              ) : (
-                <>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <ImageIcon className="text-white/25" size={72} />
-                  </div>
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_55%)]" />
-                  <span className="absolute top-5 right-5 text-xs text-white/70 uppercase tracking-wider">
-                    Screenshot coming soon
-                  </span>
-                </>
-              )}
+            <div className="mt-12 relative aspect-[16/10] rounded-2xl overflow-hidden bg-white border border-border shadow-card-hover">
+              <img src={homeAsset.url} alt="Northern Linen website home page" className="absolute inset-0 w-full h-full object-cover object-top" />
             </div>
           </Reveal>
         </div>
       </section>
 
       <section className="bg-white py-20 md:py-28">
-        <div className="container-prose max-w-4xl">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-            <Reveal>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">The Business</p>
-                <h2 className="text-3xl font-serif mb-4">Premium laundry, delivered.</h2>
-                <p className="text-charcoal/75 leading-relaxed">
-                  Northern Linen is a premium laundry pickup & delivery service operating in South Loop Bloomington.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={80}>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">The Challenge</p>
-                <h2 className="text-3xl font-serif mb-4">Online from scratch.</h2>
-                <p className="text-charcoal/75 leading-relaxed">
-                  A new service business that needed a complete online presence from scratch — a professional brand,
-                  a way for customers to book and pay, and the technology to run it all.
-                </p>
-              </div>
-            </Reveal>
-          </div>
+        <div className="container-prose max-w-3xl">
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">The Story</p>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="text-3xl md:text-4xl font-serif mb-6">Built from the ground up.</h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="text-lg text-charcoal/80 leading-relaxed">
+              Northern Linen came to us as a brand-new premium laundry pickup and delivery service in South Loop
+              Bloomington. They had a strong brand vision but no way for customers to find them, book a pickup, or
+              pay online. They needed a complete online presence built from the ground up — a professional website
+              where customers could schedule pickups, a seamless booking and payment system, business email, and the
+              technical setup to run it all reliably. We built the entire foundation so they could launch and start
+              taking orders with confidence.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -148,30 +147,24 @@ function NorthernLinenPage() {
       <section className="bg-sand py-20 md:py-28">
         <div className="container-prose">
           <Reveal>
-            <div className="flex items-end justify-between mb-10 max-w-3xl">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">Gallery</p>
-                <h2 className="text-3xl md:text-4xl font-serif">A look at the build.</h2>
-              </div>
+            <div className="mb-10 max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">Gallery</p>
+              <h2 className="text-3xl md:text-4xl font-serif">A look at the build.</h2>
             </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryImages.map((img, i) => (
-              <Reveal key={i} delay={(i % 3) * 80}>
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-navy to-navy-deep border border-border">
-                  {img ? (
-                    <img src={img} alt={`Northern Linen screenshot ${i + 1}`} className="absolute inset-0 w-full h-full object-cover" />
-                  ) : (
-                    <>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <ImageIcon className="text-white/25" size={48} />
-                      </div>
-                      <span className="absolute top-4 right-4 text-[10px] text-white/70 uppercase tracking-wider">
-                        Coming soon
-                      </span>
-                    </>
-                  )}
-                </div>
+              <Reveal key={img.label} delay={(i % 3) * 80}>
+                <figure className="group">
+                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-white border border-border shadow-card">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-sm text-charcoal/70 font-medium">{img.label}</figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>
