@@ -32,7 +32,7 @@ export function Header() {
     >
       <div className="container-prose flex items-center justify-between h-24 md:h-28 text-4xl">
         <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
-          <img src={logoBlue.url} alt="Guardafui Works" width={1254} height={1254} className="h-20 md:h-24 w-auto" />
+          <img src={logoBlue.url} alt="Guardafui Works" width={1254} height={1254} fetchPriority="high" decoding="async" className="h-20 md:h-24 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9 text-lg">
