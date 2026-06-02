@@ -3,12 +3,7 @@ import { useState } from "react";
 import { CheckCircle2, Sparkles } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
 import { FinalCTA } from "../components/site/CTA";
-import {
-  CALENDLY_URL,
-  STRIPE_LAUNCH_URL,
-  STRIPE_GROW_URL,
-  STRIPE_SCALE_URL,
-} from "@/lib/site-config";
+import { CALENDLY_URL } from "@/lib/site-config";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
