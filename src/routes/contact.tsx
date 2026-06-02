@@ -8,7 +8,7 @@ import { WEB3FORMS_ACCESS_KEY, CONTACT_EMAIL } from "@/lib/site-config";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Get Your Minnesota Small Business Online | Guardafui Works" },
+      { title: "Contact Us for Small Business Web Setup | Guardafui Works" },
       { name: "description", content: "Get in touch with Guardafui Works for small business website setup, business email setup, and Minnesota web setup. We reply within one business day." },
       { property: "og:title", content: "Contact — Guardafui Works" },
       { property: "og:description", content: "Let's get your business online. We reply within one business day." },

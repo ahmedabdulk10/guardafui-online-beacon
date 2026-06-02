@@ -9,7 +9,7 @@ import { placeholderReviews } from "../lib/reviews-data";
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
-      { title: "Client Reviews — Guardafui Works | Minnesota Small Business Web Setup" },
+      { title: "Client Reviews & Testimonials | Guardafui Works" },
       {
         name: "description",
         content:

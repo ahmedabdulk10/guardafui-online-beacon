@@ -8,7 +8,7 @@ import { CALENDLY_URL } from "@/lib/site-config";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing — Small Business Web Setup Packages from $750 | Guardafui Works" },
+      { title: "Small Business Web Setup Pricing | Guardafui Works" },
       {
         name: "description",
         content:
