@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, ArrowRight, CheckCircle2, AlertCircle, Loader2, Clock } from "lucide-react";
+import { Mail, Phone, ArrowRight, CheckCircle2, AlertCircle, Loader2, Clock } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
 import { BeaconMark, BeaconWatermark } from "../components/site/Beacon";
 import { WEB3FORMS_ACCESS_KEY, CONTACT_EMAIL } from "@/lib/site-config";
