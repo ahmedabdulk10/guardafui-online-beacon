@@ -13,14 +13,14 @@ import { placeholderReviews } from "../lib/reviews-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guardafui Works — Get Your Small Business Online, Done Right" },
+      { title: "Small Business Website Setup in Minnesota | Guardafui Works" },
       {
         name: "description",
         content:
-          "Premium small business website setup, business email, hosting, and Google Business — built by an IT pro. Live in about a week.",
+          "Get your small business online in about a week. Custom website setup, business email, hosting, and Google Business — built by a Minnesota IT pro.",
       },
-      { property: "og:title", content: "Guardafui Works — Get Your Small Business Online" },
-      { property: "og:description", content: "Custom websites, business email and full online setup in about a week." },
+      { property: "og:title", content: "Small Business Website Setup in Minnesota | Guardafui Works" },
+      { property: "og:description", content: "Custom websites, business email and full online setup for Minnesota small businesses. Live in about a week." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],

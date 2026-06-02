@@ -8,14 +8,14 @@ import { FinalCTA } from "../components/site/CTA";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Guardafui Works" },
+      { title: "Services — Business Email Setup, Websites & Hosting | Guardafui Works" },
       {
         name: "description",
         content:
-          "Custom website design, business email setup, domain & hosting, Google Business, booking and payments — done by an IT pro.",
+          "Small business website setup, business email setup, domain & hosting, Google Business, booking and payments — handled end-to-end by a Minnesota IT pro.",
       },
-      { property: "og:title", content: "Services — Guardafui Works" },
-      { property: "og:description", content: "Everything a small business needs to look established online." },
+      { property: "og:title", content: "Services — Get Your Business Online | Guardafui Works" },
+      { property: "og:description", content: "Everything a small business needs to look established online — website, email, hosting, Google Business." },
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
