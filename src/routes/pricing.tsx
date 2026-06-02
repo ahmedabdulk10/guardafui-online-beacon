@@ -72,8 +72,8 @@ const tiers = [
     ],
     popular: false,
     cta: "Get Started",
-    href: STRIPE_SCALE_URL,
-    external: true,
+    href: "/contact",
+    external: false,
   },
   {
     name: "Custom",
