@@ -32,6 +32,7 @@ const builtItems = [
 ];
 
 const galleryImages = [
+  { src: homeAsset.url, alt: "Northern Linen desktop home page", label: "Home — Desktop" },
   { src: bookingAsset.url, alt: "Northern Linen desktop booking page", label: "Booking — Desktop" },
   { src: mobileHomeAsset.url, alt: "Northern Linen mobile home page", label: "Home — Mobile" },
   { src: mobileBookingAsset.url, alt: "Northern Linen mobile booking page", label: "Booking — Mobile" },
