@@ -32,10 +32,10 @@ const builtItems = [
 ];
 
 const galleryImages = [
-  { src: homeAsset.url, alt: "Northern Linen desktop home page", label: "Home — Desktop" },
-  { src: bookingAsset.url, alt: "Northern Linen desktop booking page", label: "Booking — Desktop" },
-  { src: mobileHomeAsset.url, alt: "Northern Linen mobile home page", label: "Home — Mobile" },
-  { src: mobileBookingAsset.url, alt: "Northern Linen mobile booking page", label: "Booking — Mobile" },
+  { src: homeAsset.url, alt: "Northern Linen desktop home page", label: "Home — Desktop", width: 1255, height: 1920 },
+  { src: bookingAsset.url, alt: "Northern Linen desktop booking page", label: "Booking — Desktop", width: 760, height: 1920 },
+  { src: mobileHomeAsset.url, alt: "Northern Linen mobile home page", label: "Home — Mobile", width: 337, height: 1920 },
+  { src: mobileBookingAsset.url, alt: "Northern Linen mobile booking page", label: "Booking — Mobile", width: 261, height: 1920 },
 ];
 
 function NorthernLinenPage() {
@@ -211,6 +211,8 @@ function NorthernLinenPage() {
                     <img
                       src={img.src}
                       alt={img.alt}
+                      width={img.width}
+                      height={img.height}
                       className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   </div>
