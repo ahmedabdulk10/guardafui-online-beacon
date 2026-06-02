@@ -40,6 +40,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 function ContactPage() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
+  const submit = useServerFn(submitContact);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -48,31 +49,18 @@ function ContactPage() {
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
 
-    if (formData.get("botcheck")) {
-      setStatus("success");
-      formEl.reset();
-      return;
-    }
-
     const payload = {
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "New inquiry from Guardafui Works website",
-      from_name: "Guardafui Works Website",
-      name: formData.get("name"),
-      email: formData.get("email"),
-      business: formData.get("business"),
-      need: formData.get("need"),
-      message: formData.get("message"),
+      name: String(formData.get("name") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      business: String(formData.get("business") ?? ""),
+      need: String(formData.get("need") ?? ""),
+      message: String(formData.get("message") ?? ""),
+      botcheck: String(formData.get("botcheck") ?? ""),
     };
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (res.ok && json.success) {
+      const result = await submit({ data: payload });
+      if (result.success) {
         setStatus("success");
         formEl.reset();
       } else {
@@ -84,6 +72,7 @@ function ContactPage() {
       setErrorMsg(`Couldn't send your message. Please try again, or email us directly at ${CONTACT_EMAIL}.`);
     }
   };
+
 
   return (
     <>
