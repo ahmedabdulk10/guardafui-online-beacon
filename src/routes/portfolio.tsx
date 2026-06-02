@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, ImageIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
 import { FinalCTA } from "../components/site/CTA";
+import northernLinenLogo from "../assets/portfolio/northern-linen/logo.jpg.asset.json";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -22,8 +23,7 @@ const projects = [
     name: "Northern Linen",
     type: "Laundry Service Website",
     desc: "A premium laundry pickup & delivery business site — bookings, service areas, and pricing.",
-    accent: "from-navy to-navy-deep",
-    image: null as string | null, // TODO: replace with /assets/portfolio/northern-linen.png
+    logo: northernLinenLogo.url,
     href: "/portfolio/northern-linen" as const,
   },
 ];
@@ -59,20 +59,14 @@ function PortfolioPage() {
                   className="group block bg-white rounded-2xl overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1 h-full"
                 >
                   <article className="flex flex-col h-full">
-                    <div className={`relative aspect-[16/10] bg-gradient-to-br ${p.accent} flex items-center justify-center overflow-hidden`}>
-                      {p.image ? (
-                        <img src={p.image} alt={`${p.name} — ${p.type}`} className="absolute inset-0 w-full h-full object-cover" />
-                      ) : (
-                        <>
-                          <ImageIcon className="text-white/30" size={72} />
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]" />
-                          <span className="absolute top-4 right-4 text-xs text-white/70 uppercase tracking-wider">
-                            Screenshot coming soon
-                          </span>
-                        </>
-                      )}
+                    <div className="relative aspect-[16/10] bg-white flex items-center justify-center overflow-hidden p-10">
+                      <img
+                        src={p.logo}
+                        alt={`${p.name} logo`}
+                        className="max-h-full max-w-[70%] object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
-                    <div className="p-8 flex items-start justify-between gap-4 flex-1">
+                    <div className="border-t border-border p-8 flex items-start justify-between gap-4 flex-1 bg-sand/40">
                       <div className="flex-1">
                         <p className="text-xs uppercase tracking-wider text-amber font-semibold mb-2">{p.type}</p>
                         <h2 className="text-2xl font-serif mb-2">{p.name}</h2>
@@ -81,7 +75,7 @@ function PortfolioPage() {
                           Read case study →
                         </span>
                       </div>
-                      <div className="w-10 h-10 rounded-full bg-sand flex items-center justify-center group-hover:bg-amber transition-colors flex-shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center group-hover:bg-amber transition-colors flex-shrink-0 border border-border">
                         <ArrowUpRight className="text-navy" size={18} />
                       </div>
                     </div>
