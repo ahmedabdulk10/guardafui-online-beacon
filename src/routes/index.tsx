@@ -106,27 +106,21 @@ function Home() {
           </div>
         </div>
 
-        {/* Trust strip */}
-        <div className="border-t border-b border-border bg-sand">
-          <div className="container-prose py-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-charcoal/70">
-            {["Custom Websites", "Business Email", "Cloud Hosting", "Google Business", "Done in About a Week"].map((t, i) => (
-              <span key={t} className="flex items-center gap-3">
-                {i > 0 && <span className="text-amber">·</span>}
-                <span className="font-medium">{t}</span>
-              </span>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* WHAT WE DO */}
       <section className="bg-white py-24 md:py-32">
         <div className="container-prose">
           <div className="max-w-2xl mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">What We Do</p>
-            <h2 className="text-4xl md:text-5xl font-serif">Four services. One coherent online presence.</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber mb-3">WHAT WE DO</p>
+            <h2 className="text-4xl md:text-5xl font-serif mb-4">
+              Everything your business needs to show up online — handled.
+            </h2>
+            <p className="text-charcoal/70 text-lg leading-relaxed">
+              From your domain and email to a custom website and your Google presence, we set up the whole foundation so you look established from day one.
+            </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 80}>
                 <div className="bg-white border border-border rounded-2xl p-7 h-full shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1">
@@ -139,6 +133,19 @@ function Home() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={320}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <p className="text-charcoal/70 text-base">
+                ...and more — booking systems, payments, branding, and ongoing care.
+              </p>
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 text-navy font-semibold hover:text-amber transition-colors"
+              >
+                See all services <ArrowRight size={18} />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
