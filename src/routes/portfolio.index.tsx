@@ -4,7 +4,7 @@ import { Reveal } from "../components/site/Reveal";
 import { FinalCTA } from "../components/site/CTA";
 import northernLinenLogo from "../assets/portfolio/northern-linen/logo.jpg.asset.json";
 
-export const Route = createFileRoute("/portfolio")({
+export const Route = createFileRoute("/portfolio/")({
   head: () => ({
     meta: [
       { title: "Portfolio — Small Business Website Setup in Minnesota | Guardafui Works" },
