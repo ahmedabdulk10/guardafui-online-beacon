@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, Linkedin, Twitter, Instagram } from "lucide-react";
 import logoWhite from "@/assets/guardafui-logo-transparent.png.asset.json";
 
 export function Footer() {
@@ -14,12 +14,20 @@ export function Footer() {
             A remote tech studio helping small businesses look established from day one — custom
             websites, business email, hosting, and Google Business setup.
           </p>
-          <a
-            href="mailto:info@guardafuiworks.com"
-            className="inline-flex items-center gap-2 mt-5 text-navy hover:text-amber transition-colors text-sm font-medium"
-          >
-            <Mail size={16} /><span>info@guardafuiworks.com</span>
-          </a>
+          <div className="flex flex-col gap-2 mt-5">
+            <a
+              href="mailto:info@guardafuiworks.com"
+              className="inline-flex items-center gap-2 text-navy hover:text-amber transition-colors text-sm font-medium"
+            >
+              <Mail size={16} /><span>info@guardafuiworks.com</span>
+            </a>
+            <a
+              href="tel:+17633030997"
+              className="inline-flex items-center gap-2 text-navy hover:text-amber transition-colors text-sm font-medium"
+            >
+              <Phone size={16} /><span>763-303-0997</span>
+            </a>
+          </div>
         </div>
 
         <div>

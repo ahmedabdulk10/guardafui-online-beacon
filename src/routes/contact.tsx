@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, ArrowRight, CheckCircle2, AlertCircle, Loader2, Clock } from "lucide-react";
+import { Mail, Phone, ArrowRight, CheckCircle2, AlertCircle, Loader2, Clock } from "lucide-react";
 import { Reveal } from "../components/site/Reveal";
 import { BeaconMark, BeaconWatermark } from "../components/site/Beacon";
 import { WEB3FORMS_ACCESS_KEY, CONTACT_EMAIL } from "@/lib/site-config";
@@ -226,6 +226,21 @@ function ContactPage() {
                         <Mail size={15} />
                       </span>
                       {CONTACT_EMAIL}
+                    </a>
+                  </div>
+
+                  <div className="pt-5 border-t border-white/10">
+                    <p className="text-[11px] uppercase tracking-[0.18em] text-amber font-semibold mb-2">
+                      Phone
+                    </p>
+                    <a
+                      href="tel:+17633030997"
+                      className="inline-flex items-center gap-2.5 text-white hover:text-amber transition-colors font-medium group"
+                    >
+                      <span className="w-9 h-9 rounded-full bg-white/10 group-hover:bg-amber/20 flex items-center justify-center transition-colors">
+                        <Phone size={15} />
+                      </span>
+                      763-303-0997
                     </a>
                   </div>
 
