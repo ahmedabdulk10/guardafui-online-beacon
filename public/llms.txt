@@ -1,0 +1,15 @@
+# Guardafui Works
+
+> A premium remote tech studio building custom websites, business email, hosting, and Google Business profiles for small businesses — done in about a week.
+
+Guardafui Works helps small businesses get online fast with professionally built websites, branded email, reliable hosting, and complete Google presence. Every project is handled by an experienced IT professional, not just a designer, so the technical foundation is secure, fast, and built to last.
+
+## Pages
+
+- [/](/): Home — overview of services, pricing packages, process, and client testimonials.
+- [/services](/services): Full list of services including custom websites, professional email, hosting & domains, Google Business Profiles, booking systems, and ongoing care.
+- [/pricing](/pricing): Fixed-price packages (Launch, Grow, Scale) with detailed feature breakdowns.
+- [/portfolio](/portfolio): Case studies and past work, including the Northern Linen flagship project.
+- [/portfolio/northern-linen](/portfolio/northern-linen): Detailed case study of a premium laundry pickup & delivery service built from the ground up.
+- [/reviews](/reviews): Client testimonials and reviews.
+- [/contact](/contact): Get in touch to start a project.
