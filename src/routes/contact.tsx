@@ -231,6 +231,21 @@ function ContactPage() {
 
                   <div className="pt-5 border-t border-white/10">
                     <p className="text-[11px] uppercase tracking-[0.18em] text-amber font-semibold mb-2">
+                      Phone
+                    </p>
+                    <a
+                      href="tel:+17633030997"
+                      className="inline-flex items-center gap-2.5 text-white hover:text-amber transition-colors font-medium group"
+                    >
+                      <span className="w-9 h-9 rounded-full bg-white/10 group-hover:bg-amber/20 flex items-center justify-center transition-colors">
+                        <Phone size={15} />
+                      </span>
+                      763-303-0997
+                    </a>
+                  </div>
+
+                  <div className="pt-5 border-t border-white/10">
+                    <p className="text-[11px] uppercase tracking-[0.18em] text-amber font-semibold mb-2">
                       Response Time
                     </p>
                     <div className="inline-flex items-center gap-2.5 text-white/90">
